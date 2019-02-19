@@ -12,6 +12,9 @@
   <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
   <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <plugin name="cordova-plugin-inappbrowser" />
+  <plugin name="phonegap-plugin-barcodescanner"/>
+  
   <icon src="icon.png"/>
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>

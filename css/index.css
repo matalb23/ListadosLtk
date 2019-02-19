@@ -113,97 +113,13 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
-/*----------------------------------------------------------------*/
-/*----------------------------------------------------------------*/
-/*----------------------------------------------------------------*/
-/*----------------------------------------------------------------*/
-/*----------------------------------------------------------------*/
-tr {
-    border-bottom: 3px solid lightgray;
-}
-
-.btn_ver_notas{
-    background-color: #ddd;
-    padding: 8px;
-    text-align: center;
-    color: #333;
-    text-shadow: none;
-	    font-weight: 900;
-    height: 20px;
-    line-height: 20px;
-}
-.row-dato{
-    font-weight: 600; color: #333;
-	margin-top: 5px;
-    font-size: 12px;
-}
-.filtros-colapsable{
-    border: 1px solid #c1c1c1;
-    background: #eee;
-}
-
-.header-ltk {
-    background-color: #222653 !important;
-    border-color: #ddd;
-    color: #f3f3f3;
-    font-weight: 300 !important;
-    min-height: 50px;
-    letter-spacing: 3px;
-	line-height: 24pt;
-}
-.ui-btn-icon-notext.ui-btn-right {
-    top: 11px !important;
-    right: 12px !important;
-}
-.ui-listview>.ui-li-divider {
-    padding: 24px 0px 5px 14px !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    cursor: default;
-    outline: 0;
-    background-color: #fff !important;
-    color: #222653 !important;
-    BORDER-BOTTOM: 2px solid #222653 !important;
-}
-.ui-listview>.ui-li-static, .ui-listview>.ui-li-divider, .ui-listview>li>a.ui-btn {
-    border-width: 1px 0 0;
-    border-style: solid;
-    border-color: #ededed !important;
-}
-.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
-    background-color: #574b99;
-    /* border-color: #ddd; */
-    color: #fcbf0e;
-    /* text-shadow: 0 1px 0 #eee; */
-    font-weight: 300 !important;
-    letter-spacing: 2px !important;
-    min-height: 30px !important;
-    line-height: 24pt !important;
-}
-#page-Chk_PorControlar_ConError-1-filtro-buscar, #page-Empresas_v-2-filtro-buscar, #page-LTK_CONSULTASMOBILE_LLamadosDia-3-filtro-buscar, #page-LTK_CONSULTASMOBILE_TKs_Pendientes-4-filtro-buscar,#page-LTK_CONSULTASMOBILE_TKs_Pendientes-4-filtro-buscar,  {
-    padding-left: 10px;
-    color: #222653;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-.logo {
+.ui-icon-carat-r:after{
     background-image: url(img/flecha.png) !important;
+	background-size: cover !important;
 }
-.ui-btn-left .ui-btn .ui-icon-arrow-l .ui-btn-icon-notext .ui-page-theme-a .ui-btn:hover {
-	background-color: #eee0;
-}
-.ui-btn-left .ui-btn .ui-icon-arrow-l .ui-btn-icon-notext .ui-page-theme-a .ui-btn:focus {
-	background-color: #eee0 !important;
-}
-html head+body .ui-btn.ui-btn-b {
-	background-color: #fcbf0e !important;
-    border-color: #fcbf0e !important;
-    color: #222653 !important;
-    text-shadow: 0 0px 0 #111 !important;
-    width: 100% !important;
-}
-button {
-	background-color: #fcbf0e !important;
+.ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-border-radius: 0em;
+    border-radius: 0em;
 }

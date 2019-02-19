@@ -31,8 +31,8 @@
       <!-- <script type="text/javascript" src="js/consultas.js"></script> -->
       <script type="text/javascript" src="js/LectorCodigo.js"></script>
       <script type="text/javascript" src="js/acceso_ws.js"></script>
-      <script type="text/javascript" src="js/consultasok.js"></script>
-      <script type="text/javascript" src="barcodescanner.js"></script>
+      <script type="text/javascript" src="js/conexionesok.js"></script>
+      <!-- <script type="text/javascript" src="barcodescanner.js"></script> -->
       <!--<script src="/js/indexweb.js"></script>-->
 
       <title>LTK.Listados</title>
@@ -55,14 +55,12 @@
 		<div data-role="header" data-position="fixed" class="header-ltk">
 			<button id="actualizar" style="display: none;" onclick="actualizar();" class="ui-btn ui-icon-refresh ui-btn-icon-left ui-btn-icon-notext" >Actualizar</button>
 			<!--<a href="#" onclick="actualizar()" class="ui-btn-icon-left" data-transition="slide">Actualizar</a>-->
-      <a  class="ui-btn ui-icon-gear ui-btn-icon-left ui-btn-icon-notext" data-transition="slide" onclick="Ir_Conexiones();" >Conexiones</a>
 			<h1><img src="img/logo.png" /></h1>
 			<a href="#page-config" class="ui-btn ui-icon-gear ui-btn-icon-right ui-btn-icon-notext" data-transition="slide" onclick="ws_leer_url();">Configurar</a>
-
 		</div>
 			<div data-role="main" class="ui-content">
 				<ul data-role="listview" id="main-ul-consultas-disponibles">
-				  <li data-role="list-divider" >Consultas disponibles</li>
+				  <li data-role="list-divider"  onClick="reply_click()"  >Conexiones disponibles</li>
 
 				</ul>
 		</div>
@@ -133,8 +131,32 @@
 	</div>
 
     <script type="text/javascript">
+    // get a reference to the table
+                  // var table = document.querySelector('table');
+                  //
+                  // // listen for a click
+                  // table.addEventListener('click', function(ev){
+                  //   // get the event targets ID
+                  //   var seccionid = ev.target.id;
+                  //   if(seccionid!="")
+                  //   {
+                  //     setConfigValue("seccionid",seccionid);
+                  //       window.location = "inspeccionar.html";
+                  //   }
+                  //
+                  // })
+    //app.initialize();
+//  alert("sssw");
+    function conexion_click(e) {
+        e = e || window.event;
+        e = e.target || e.srcElement;
+        if (e.nodeName === 'BUTTON') {
+            //alert(e.id);
+            setConfigValue("conexion",e.id);
+            window.location.href="consultas.html";
+        }
 
-    app.initialize();
+    }
     </script>
 
 

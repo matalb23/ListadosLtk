@@ -1,5 +1,5 @@
 var COL_TH_MAS_INFO = "+Info";
-//consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro[]{.nombre, tipo, filtrar:bool }, orden, ordenBy, columnaCodigo}
+
 var _clave = "";
 var _params = "";
 var _url = "";
@@ -14,52 +14,33 @@ function actualizar(){
 
 	obtener_consultas();
 
-	obtener_links();
+//obtener_links();
 
+	//$.mobile.changePage( "#page-principal", { transition: "slideup", changeHash: true });
 	$.mobile.changePage( "#page-principal", { transition: "slideup", changeHash: true });
-
 	};
 
-	function obtener_links(){
-		var url = _url + WS_OBTENERLINKS;
-		function _proceso_agregar_link(resultado){
-			//alert("resultado:"+resultado);
 
-			if(resultado.length>0){
-				//agrego un separador
-				$("#main-ul-consultas-disponibles").append("<li data-role='list-divider' >Links</li>");
 
-				for (var i = 0; i < resultado.length; i++) {
+//consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro, orden, ordenBy}
+function link_agregar_en_menu(link){
+	var nuevo_link;
+	//nuevo_link = "<li> <a href='#' onclick='window.open('"+link.url+"', '_system');'>"+link.nombre+"</a> </li>";
 
-					var link = resultado[i];
-					//alert("link:"+link);
-					//	alert(link);
-					link_agregar_en_menu(link);
-					//for(var key in rowData) alert('----key: ' + key + '\n' + '----value: ' + rowData[key]);
-					//alert( rowData);
+	nuevo_link = "<li> <a href='#' onclick=\"window.open('"+link.url+"', '_system');\">"+link.nombre+"</a> </li>";
+//nuevo_link = "<li>   <a onclick="navigator.app.loadUrl('"+link.url+"', { openExternal:true });">Link</a></li>";
+	//alert(nuevo_link);
+	$("#main-ul-consultas-disponibles").append(nuevo_link);
 
-				}
-			}
-		}
-		ejecutar_ajax_ws(url, _params, "Cargando Links", _proceso_agregar_link);
-	}
-	function link_agregar_en_menu(link){
-		var nuevo_link;
-		//nuevo_link = "<li> <a href='#' onclick='window.open('"+link.url+"', '_system');'>"+link.nombre+"</a> </li>";
 
-		nuevo_link = "<li> <a href='#' onclick=\"window.open('"+link.url+"', '_system');\">"+link.nombre+"</a> </li>";
-	//nuevo_link = "<li>   <a onclick="navigator.app.loadUrl('"+link.url+"', { openExternal:true });">Link</a></li>";
-		//alert(nuevo_link);
-		$("#main-ul-consultas-disponibles").append(nuevo_link);
-	}
+}
 function ws_leer_url(){
 	var url =acceso_ws_get_url();
 	//alert("leido " + url);
 	$("#url_ws").val(url);
 };
-function Ir_Conexiones(){
-      window.location.href="conexiones.html";
-	};
+
+
 function ws_validar_clave(){
 	var url  = $("#url_ws").val();
 	acceso_ws_set_url(url);
@@ -255,16 +236,20 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 };
 
 function mas_info(consulta_codigo, tipo, codigo_a_buscar, columna_unica, columna_codigo){
-
+	//alert("columna_unica:"+columna_unica);
+	//selecciono codigo
+    //var _url = "/serviciows.asmx/ObtenerNotasDeServicio";
+    //ajax_mostrar_notas(servicio);
     var url;
     var params;
     if(tipo!=''){
-
+    	//ajax_mas_info_alert(servicio);
     	url = _url + WS_MASINFO_SIMPLE;
-    	params = "{acceso:'"+acceso_ws_get_clave() + "', consulta_codigo:"+consulta_codigo+", codigo_a_buscar:'"+codigo_a_buscar+"', ConexionId:'"+ getConfigValue("conexion")+"'}";
+    	params = "{acceso:'"+acceso_ws_get_clave() + "', consulta_codigo:"+consulta_codigo+", codigo_a_buscar:'"+codigo_a_buscar+"' ConexionId='"+ getConfigValue("conexion")+"'}";
     	//params = _params;
     	function _procesar_mas_info(resultado){
-
+    		//alert("resultado:"+resultado);
+			//alert("resultado.toLowerCase:"+resultado[0][columna_unica.toLowerCase()]);
 			if(columna_unica!=''){
 				var notas = "";
 	            for (var i = 0; i < resultado.length; i++) {
@@ -382,8 +367,18 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 //consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro, orden, ordenBy}
 function consulta_agregar_en_menu(consulta){
 
-	var nueva_consulta = "<li><a href='#page-"+consulta.nombreTabla+"-"+consulta.codigo+"'  data-transition='slide'>"+consulta.nombreAMostrar+"</a></li>";
+	var nueva_consulta = "<li><button type='button'  id='" + consulta.id + "' onclick='conexion_click()'>"+consulta.nombre+"</button></li>";
 	$("#main-ul-consultas-disponibles").append(nueva_consulta);
+
+	// alert("consulta_agregar_en_menu");
+	// var nueva_consulta ="<tr>" +
+	//
+	// 								"<td><button type='button' id='" + consulta.id + "' class='btn-large naranja'>" + consulta.nombre + "</button>" +
+	//
+	// 								"</td>" +
+	// 						"</tr>";
+  // $(".tabla-seccion").append(nueva_consulta);
+
 }
 
 
@@ -533,7 +528,7 @@ $(".boton-buscar-datos").trigger("click");
 function obtener_consultas(){
 
 	function _proceso_agregar_consultas(resultado){
-		//alert("proceasndoooo" + tabla);
+	//	alert("proceasndoooo" + tabla);
 
 		_consultas = resultado;
 
@@ -543,7 +538,7 @@ function obtener_consultas(){
 				var consulta = _consultas[i];
 
 				consulta_agregar_en_menu(consulta);
-				consulta_agregar_page(consulta);
+			//	consulta_agregar_page(consulta);
 
 				//for(var key in rowData) alert('----key: ' + key + '\n' + '----value: ' + rowData[key]);
 
@@ -554,9 +549,9 @@ function obtener_consultas(){
 
 		//alert("FIn proceasndoooooo ");
 	}
-	var url = _url + WS_OBTENERCONSULTAS;
+	var url = _url + "/consultasws.asmx/ObtenerConexiones";
 	//alert("url:OBETNERCONSULTASS:"+url);
-	//alert(_params);
+	//alert("antes ajax");
 	ejecutar_ajax_ws(url, _params, "Cargando consultas", _proceso_agregar_consultas);
 	//alert("despues ajax");
 
@@ -604,13 +599,13 @@ function sql_query_agregar_condicion_si_corresponde(campo, tipo, condicion, valo
 $(document).ready(function(){
 	//alert("ready-indexok.js");
 	_clave = acceso_ws_get_clave();
-	_params = "{acceso: '"+_clave+"' ,ConexionId:'"+ getConfigValue("conexion")+"'}";
+	_params = "{acceso: '"+_clave+"'}";
 	_url = acceso_ws_get_url();
 	//alert("_url:"+_url);
 	_consultas = [];
 
 	actualizar();
-	$(".boton-lector").click(function(){
+/*	$(".boton-lector").click(function(){
 			var scanner = cordova.plugins.barcodeScanner;
 //alert(this.id);
  //alert($(this).attr('id').substring(1));
@@ -650,7 +645,8 @@ $(document).ready(function(){
 
 	);
 
-		});
+});*/
+
 
 	$(".boton-buscar-datos").click(function(){
 

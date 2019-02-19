@@ -53,16 +53,17 @@
 		<div data-role="main" class="ui-content">
 			<div class="ui-field-contain">
 				<label for="url_ws" class="ui-hidden-accessible">WS</label>
-		    	<input type="text" name="url_ws" id="url_ws" value="https://mdgestion-ws.conveyor.cloud">
-
+		    	<input type="hidden" name="url_ws" id="url_ws" value="https://mdgestion-ws.conveyor.cloud">
+          <label for="usuario" class="ui-hidden-accessible">usuario</label>
+            <input type="text" name="usuario" id="usuario" value="matias" placeholder="usuario...">
 				<label for="clave" class="ui-hidden-accessible">Clave</label>
-		    	<input type="text" name="clave" id="clave" value="1161718712" placeholder="clave de acceso...">
+		    	<input type="text" name="clave" id="clave" value="1234" placeholder="clave de acceso...">
 	    </div>
 	    <button id="validar_clave" data-role="button" data-inline="true" data-icon="check" onclick="validar();">Validar</button>
 
 		</div>
 		<div data-role="footer"  class="centrado" data-position="fixed" >
-			LatikaIT
+			Latika Developer Team
 		</div>
 	</div>
 
@@ -71,7 +72,7 @@
 	<!-- Include meta tag to ensure proper rendering and touch zooming -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Include jQuery Mobile stylesheets -->
-	 <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css"> 
+	 <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
 	<!-- Include the jQuery library -->
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<!--<script src="js/jquery-1.9.1.min.js" ></script>-->
@@ -81,6 +82,7 @@
 
     <script type="text/javascript" src="js/fastclick.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+  <!-- <script type="text/javascript" src="js/LectorCodigo.js"></script> -->
 	<!--<script src="/js/indexweb.js"></script>-->
 
     <script type="text/javascript">

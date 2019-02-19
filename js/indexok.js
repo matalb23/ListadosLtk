@@ -4,14 +4,14 @@ window.addEventListener('load', function() {
 }, false);
 
 
-function validar_url_clave(url, clave){
+function validar_url_clave(url,usuario, clave){
 	var url_validar = url + WS_VALIDAR;
 	//alert(url_validar + " ---------------------- ur-validar.");
-
-	var params = "{acceso: '"+clave+"'}";
+	acceso_ws_set_logueado("N");
+	var params = "{usuario: '"+usuario+"',clave: '"+clave+"'}";
 	var ajax = $.ajax({
 		url: url_validar,
-		data: params, 
+		data: params,
 		type: 'POST',
 		contentType: "application/json; charset=utf-8",
 		async: false,
@@ -22,25 +22,29 @@ function validar_url_clave(url, clave){
 	    });
 	    ajax.done(function (response) {
 			//alert("DONEEEEE");
-			//alert(response);		
+			//alert(response);
 			var resultado_json = $.parseJSON(response.d);
 			//codigo | descripcion | resultado
 			//alert("codigo: " + resultado_json.codigo);
 			//alert("descripcion: " + resultado_json.descripcion);
 			//alert("resultado: " + resultado_json.resultado);
-			
+
 			if(resultado_json.codigo !=100){//100 es ok
-				alert("webService error cod: " + resultado_json.codigo);
-				alert("webService error desc: " + resultado_json.descripcion);			
-				
+				alert("webService error cod: " + resultado_json.codigo + "webService error desc: " + resultado_json.descripcion);
+				alert(params);
+
 			}else{
 				//alert("login OK");
-				acceso_ws_set_clave(clave);
+				setConfigValue("usuario",usuario);
+				setConfigValue("clave",clave);
+
+				acceso_ws_set_clave(resultado_json.resultado);//acceso
 				acceso_ws_set_url(url);
-				window.location.href="consultas.html";
+				acceso_ws_set_logueado("S");
+				window.location.href="conexiones.html";
 			}
-					
-			
+
+
 	    });
 	    ajax.fail(function (xhr, status) {
 			//$("#estado").html( nombre + " ERROR");
@@ -49,7 +53,7 @@ function validar_url_clave(url, clave){
 	    ajax.always(function () {
 			//alert("allways");
 			//$("#estado").html("OKOKOK");
-    });	
+    });
 };
 
 function validar_si_ya_existe_clave(){
@@ -66,32 +70,17 @@ function validar_si_ya_existe_clave(){
 };
 
 function validar(){
-	var clave  = $("#clave").val();	
+	var clave  = $("#clave").val();
+	var usuario  = $("#usuario").val();
 
-/*
-	alert(clave + " - clave.");
-	var urla = "http://www.latikait.com.ar";
-	$.ajax({ url: urla, 
-			async:true, 
-			success: function(data) { 
-				alert("success: "); alert(data); alert("Fin successs"); 
-			}, 
-			error: function(XMLHttpRequest, textStatus, errorThrown) { 
-		        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-		    }, 
-		    beforeSend: function(){$("#clave").val("pensando ...");}, 
-		    complete: function(){ $("#clave").val("Terminado!"); }
-			});
-	*/
+	//alert("login OK");
+	setConfigValue("usuario",usuario);
+	setConfigValue("clave",clave);
 
-
-	//$.mobile.changePage( "#page-principal", { transition: "slideup", changeHash: true });
-	////////////////////////////////////////////////////////////
-	//var url = "http://10.0.0.80:6002/serviciows.asmx/ValidarClave";
 	var url = $("#url_ws").val();
 	//alert(url + " - url.");
-	validar_url_clave(url, clave);
-	
+	validar_url_clave(url, usuario,clave);
+
 	////////////////////////////////////////////////////////////////////////////////////
 };
 
