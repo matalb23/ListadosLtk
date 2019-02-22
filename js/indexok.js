@@ -30,8 +30,10 @@ function validar_url_clave(url,usuario, clave){
 			//alert("resultado: " + resultado_json.resultado);
 
 			if(resultado_json.codigo !=100){//100 es ok
-				alert("webService error cod: " + resultado_json.codigo + "webService error desc: " + resultado_json.descripcion);
-				alert(params);
+				//alert("webService error cod: " + resultado_json.codigo + "webService error desc: " + resultado_json.descripcion);
+				alert( resultado_json.descripcion);
+				//alert(params);
+					acceso_ws_set_logueado("N");
 
 			}else{
 				//alert("login OK");
@@ -48,7 +50,7 @@ function validar_url_clave(url,usuario, clave){
 	    });
 	    ajax.fail(function (xhr, status) {
 			//$("#estado").html( nombre + " ERROR");
-	        alert("fail-" + status + " - url: " + url_validar + " - clave: " + clave);
+	        alert("fail-" + status + " - url: " + url_validar + " -  " + params);
 	    });
 	    ajax.always(function () {
 			//alert("allways");
@@ -60,11 +62,12 @@ function validar_si_ya_existe_clave(){
 	//alert("estoy actualizando ok ");
 
 	var url = acceso_ws_get_url();
-	var clave = acceso_ws_get_clave();
+	var clave =  $("#clave").val();//acceso_ws_get_clave();
+var usuario  = $("#usuario").val();
 
-	if(url !=null && clave!=null)
-		if (url!="" && clave!="")
-			validar_url_clave(url, clave);
+	if(url !=null && clave!=null && usuario!=null )
+		if (url!="" && clave!="" && clave!="")
+			validar_url_clave(url, usuario,clave);
 
 	//alert("FINNN estoy actualizando ok ");
 };

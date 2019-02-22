@@ -1,20 +1,20 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.latikait.listados.mobile" version="2.0.0">
   <name>LTK_Listados.Mobile</name>
   <description>LTK_Listados - Proyecto mobile</description>
-  <author href="http://latikait.com.ar" email="soporte@latikait.com.ar">LatikaIT</author>
+  <author href="http://latikait.com.ar" email="soporte@latikait.com.ar">Latika Developer Team</author>
   <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
-  
+
   <preference name="SplashScreen" value="screen" />
   <preference name="SplashScreenDelay" value="10000" />
-  
+
   <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
   <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <plugin name="cordova-plugin-inappbrowser" />
   <plugin name="phonegap-plugin-barcodescanner"/>
-  
+
   <icon src="icon.png"/>
   <platform name="android">
     <icon src="res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>

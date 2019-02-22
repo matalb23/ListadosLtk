@@ -27,7 +27,7 @@ function actualizar(){
 
 			if(resultado.length>0){
 				//agrego un separador
-				$("#main-ul-consultas-disponibles").append("<li data-role='list-divider' >Links</li>");
+				$("#main-ul-consultas-disponibles").append("<li data-role='list-divider' class='contenedor-titulos-separadores'><h1 class='titulos-separadores'>Links</h1></li>");
 
 				for (var i = 0; i < resultado.length; i++) {
 
@@ -47,7 +47,7 @@ function actualizar(){
 		var nuevo_link;
 		//nuevo_link = "<li> <a href='#' onclick='window.open('"+link.url+"', '_system');'>"+link.nombre+"</a> </li>";
 
-		nuevo_link = "<li> <a href='#' onclick=\"window.open('"+link.url+"', '_system');\">"+link.nombre+"</a> </li>";
+		nuevo_link = "<li class='contenedor-link-lista'> <a class='link-lista' href='#' onclick=\"window.open('"+link.url+"', '_system');\">"+link.nombre+"</a> </li>";
 	//nuevo_link = "<li>   <a onclick="navigator.app.loadUrl('"+link.url+"', { openExternal:true });">Link</a></li>";
 		//alert(nuevo_link);
 		$("#main-ul-consultas-disponibles").append(nuevo_link);
@@ -160,7 +160,7 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 				var col;
 				if(primera_vez){
 					//row.append($("<td class='primera'>  </td>"));
-					$("#"+id_tabla).append("<tr class='primera'></tr>");
+					$("#"+id_tabla).append("<tr class='primera'><td class='blank-space'></td></tr>");
 					primera_vez = false;
 				}
 
@@ -219,9 +219,9 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 				if(consulta.desgloseTipo!=""){
 						//agrego la columna para hacer click
 						//row.append($( "<td class='row-dato'>" + dato + "</td>";));
-						var ver_click = "<div onclick=\"mas_info("+consulta.codigo+", '"+consulta.desgloseTipo+"', '"+rowData[col_codigo]+"', '"+consulta.desgloseColumnaUnica+"', '"+consulta.columnaCodigo+"')\" class='btn_ver_notas'>(*)</<div>";
+						var ver_click = "<div onclick=\"mas_info("+consulta.codigo+", '"+consulta.desgloseTipo+"', '"+rowData[col_codigo]+"', '"+consulta.desgloseColumnaUnica+"', '"+consulta.columnaCodigo+"')\" class='btn_ver_notas btn btn-secondary'> Más Información </div>";
 						//alert("ver_click:"+ver_click);
-						row.append($("<td>" + ver_click+ "</td>"));
+						row.append($("<td class='row-dato'>" + ver_click+ "</td><td class='blank-space'></td>"));
 					}
 
 				$("#"+id_tabla).append(row);
@@ -233,7 +233,7 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			//alert("TERMINADO " + nombre);
 			////////////////////////////////////////////////////////////////
 			//$("#estado").html(nombre + " OK");
-			$("#estado").html("LatikaIT");
+			$("#estado").html("Latika Developer Team");
 
 			//$("#"+id_tabla).table("refresh");
 		}
@@ -284,34 +284,46 @@ function mas_info(consulta_codigo, tipo, codigo_a_buscar, columna_unica, columna
 				var html;
 				//Tiene una tabla a mostrar
 				$("#page-mas-info-tablas-main").empty();
-				//alert("resultado:"+resultado);
+			//	alert("resultado:"+resultado);
+				var primera =1;
 				for (var i = 0; i < resultado.length; i++) {
-	                //notas = notas + resultado[i][columna_unica.toLowerCase()] + "\n";
-	                html = "<div class='ui-field-contain'>";
-	                for(var key in resultado[i]) {
-					    //alert('----key: ' + key + '\n' + '----value: ' + resultado[i][key]);
-					    //html+= "<label for='"+key+"'>"+key+"</label>";
-					    html+= "<div class='ui-field-contain'>";
-					    if(key.toLowerCase() == columna_codigo.toLowerCase() )
-					    	//html+= "<h2 >"+key+": </h2>";
-					    html+= "<span ><strong>"+key+": </strong></span>";
-					    else{
-					    	//alert("key:"+key+", colcodigo:"+columna_codigo);
-					    	html+= "<span >"+key+": </span>";
-					    }
-					    //html+= "<input type='text' name='"+key+"' value='"+resultado[i][key]+"'/>";
-					    html+= "<span><strong>"+resultado[i][key]+"</strong></span>";
-					    html+= "</div>";
+								primera =1;
+									html = "<div class='card'>";
+									for(var key in resultado[i]) {
+
+							// html+= "<div class='ui-field-contain'>";
+							if(primera==1)//if(key.toLowerCase() == columna_codigo.toLowerCase() )
+							{
+							// html+= "<span ><strong>"+key+": </strong></span>";
+								html+= "<div class='card-header'>";
+								html+= "<strong>"+key+":</strong> "+resultado[i][key];
+								html+= "</div>";
+								html+= "<div class='card-body'>";
+								html+= "<ul class='list-group list-group-flush'>";
+								primera=0;
+
+					 }
+							else{
+
+								// html+= "<span >"+key+": </span>";
+								html+= "<li class='list-group-item'><strong>"+key+":</strong>"+resultado[i][key]+"</li>";
+							}
+							html+= "</ul>";
+
+							// html+= "<span><strong>"+resultado[i][key]+"</strong></span>";
+					//    html+= "</div>";
 					}
+						html+= "</div>";
 					//html += "<hr noshade/>";
 					html += "</div>";
 					//alert(html);
 					$("#page-mas-info-tablas-main").append(html);
-	            }
-	            $("#page-mas-info-tablas-main").append("<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left' data-rel='back' data-transition='slide'>Volver</a>");
-	            $("#page-mas-info-tablas-titulo").html("Mas Info - Buscar Por: " + codigo_a_buscar);
-	            $.mobile.changePage( "#page-mas-info-tablas", { transition: "slideup", changeHash: true });
-	            $("#page-mas-info-tablas-main").trigger('create');
+							}
+							$("#page-mas-info-tablas-main").append(Cabezal());
+	            // $("#page-mas-info-tablas-main").append("<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left' data-rel='back' data-transition='slide'>Volver</a>");
+	            // $("#page-mas-info-tablas-titulo").html("Mas Info - Buscar Por: " + codigo_a_buscar);
+	             $.mobile.changePage( "#page-mas-info-tablas", { transition: "slideup", changeHash: true });
+	             $("#page-mas-info-tablas-main").trigger('create');
 
 
 			}
@@ -361,7 +373,7 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 			//alert("TERMINADO " + nombre);
 			////////////////////////////////////////////////////////////////
 			//$("#estado").html(nombre + " OK");
-			$("#estado").html("LatikaIT");
+			$("#estado").html("Latika Developer Team");
 			//$("#"+id_tabla).table("refresh");
 		}
 
@@ -382,7 +394,7 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 //consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro, orden, ordenBy}
 function consulta_agregar_en_menu(consulta){
 
-	var nueva_consulta = "<li><a href='#page-"+consulta.nombreTabla+"-"+consulta.codigo+"'  data-transition='slide'>"+consulta.nombreAMostrar+"</a></li>";
+	var nueva_consulta = "<li class='contenedor-link-lista'><a class='link-lista' href='#page-"+consulta.nombreTabla+"-"+consulta.codigo+"'  data-transition='slide'>"+consulta.nombreAMostrar+"</a></li>";
 	$("#main-ul-consultas-disponibles").append(nueva_consulta);
 }
 
@@ -401,15 +413,46 @@ function consulta_agregar_page(consulta){
 	//page = $("body").append($("<div>").append($("<div>").append($("<h1>tiulo</h1>"))).append($("<div>contenttt</div>"))	);​
 	var page = "														\
 	<div data-role='page' id='"+id+"'>     \
-		<div data-role='header' data-position='fixed' >                    \
-			<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext' data-rel='back' data-transition='slide'>Volver</a>   \
-			<h1>"+consulta.nombreAMostrar+"</h1>	";
+	<div id=''>     \
+		<div id='navbar7'>     \
+			<nav class='navbar navbar-toggleable-md navbar-light bg-faded fixed-top invers-fixed'>     \
+				<div class='container' style=' margin: 0px; text-align: center;width: 100%'>     \
+					<div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>     \
+						<ul class='navbar-nav'>     \
+							<li class='nav-item'>     \
+								<button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back.png);background-repeat: no-repeat;background-position: center;background-color: #f0f8ff00;background-position-x: 97%;'></button>     \
+							</li>     \
+						</ul>     \
+					</div>     \
+					<a class='navbar-brand justify-content-center' href='#'>     \
+						<img src='dist/images/logo-consultas.png' width='163px' height='37px' style='position: relative; top: -9px;'/>     \
+					</a>     \
+					<div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent' style='position: absolute; right: 0px;'>     \
+						<ul class='navbar-nav'>     \
+							<li class='nav-item'>     \
+								<a class='nav-link' href='#'><img src='dist/images/ico-config.png' width='20px' height='20px' style='position: relative;  top: -11px;'/></a>     \
+							</li>     \
+						</ul>     \
+					</div>     \
+				</div>     \
+			</nav>    \
+		</div> ";
+
+	//	<div data-role='header' data-position='fixed' >                    \
+	//		<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext' data-rel='back' data-transition='slide'>Volver</a>   \
+	//		<h1>"+consulta.nombreAMostrar+"</h1>	";
+
 			//<button id='actualizar' class='ui-btn ui-icon-delete ui-btn-icon-left ui-btn-icon-notext' >Actualizar</button>		\
 	page = page + "\
 		</div>		\
+		<div data-role='main' class='ui-content' style='position: relative; margin-top: 80px;'>      \
+				<ul data-role='listview' id='main-ul-consultas-disponibles'>     \
+					<li data-role='list-divider' style='border-bottom:2px solid #bdbdbd; background: #ffffff; min-height: 60px; padding: 30px 20px 0px 20px;'>     \
+						<h1 style='color:#009ee3; font-size: 14px; letter-spacing: 1px; font-weight: 400; text-transform: uppercase;'>"+consulta.nombreAMostrar+"</h1>     \
+					</li>     \
+				</ul>     \
+		</div>      \
 			<div data-role='main' class='ui-content'>		";
-
-
 
 	//alert("len filter" + consulta.filtro.length);
 	if(consulta.filtro.length>0){
@@ -445,11 +488,11 @@ function consulta_agregar_page(consulta){
 	var id_tabla = consulta_get_id_tabla_html(consulta);
 
 	//alert("okok");
-	page = page + "\
-		<button class='ui-btn ui-icon-search ui-btn-icon-left boton-buscar-datos' codigo='"+consulta.codigo+"' id='"+id_btn_buscar+"'>Buscar</button>		\
-				<table  id='"+id_tabla+"' data-role='table' class='ui-responsive ui-shadow agregar_ver_notas' >		\
-					<thead>		\
-					<tr>		";
+	// class='ui-btn ui-icon-search ui-btn-icon-left boton-buscar-datos'
+	page = page + "<button class='btn btn-primary btn-sh-primary boton-buscar-datos' codigo='"+consulta.codigo+"' id='"+id_btn_buscar+"'>Buscar</button>";
+	page = page + "<table  id='"+id_tabla+"' data-role='table' class='ui-responsive ui-shadow agregar_ver_notas' >";
+	page = page + "	<thead>";
+	page = page + "<tr>		";
 	//alert("OKOKOKOKKOKO");
 
 	//cargo las columnas
@@ -473,10 +516,18 @@ function consulta_agregar_page(consulta){
 					</tbody>	\
 				</table>		\
 			</div>		\
-			<div data-role='footer'  class='centrado' data-position='fixed'  >		\
-				LatikaIT		\
-			</div>		\
+		  	<div class='row' style='background-color: #0d1b34;padding: 5px;text-align: center;line-height: 13px;position: fixed;bottom: 0px;width: 110%;'>		\
+		  		<div class='col-lg-12'>		\
+		              <div class='copy'>		\
+		                  <p style='margin-bottom: 0px;'><img src='dist/images/logo-ltk.png' width='63px' height='10px'/></p>		\
+		              </div>		\
+		          </div>		\
+		  	</div>		\
 		</div>";
+
+		//<div data-role='footer'  class='centrado' data-position='fixed'  >		\
+		//	Latika Developer Team		\
+		//</div>		\
 
 	//alert(page);
 	//$("body").addClass("asdfadfasdfasd");
@@ -599,6 +650,49 @@ function sql_query_agregar_condicion_si_corresponde(campo, tipo, condicion, valo
 		}
 	}
 	return where;
+}
+function Cabezal()
+{
+var html;
+html=""
+	html+=" <!-- start hero base cabezal -->";
+  html+=" <div id=''>";
+	html+=" <!-- start CABEZAL -->";
+	html+=" <div id='navbar7'>";
+		html+=" <nav class='navbar navbar-toggleable-md navbar-light bg-faded fixed-top invers-fixed'>";
+			html+=" <div class='container' style=' margin: 0px; text-align: center;width: 100%'>";
+
+				html+=" <!-- start MENU -->";
+				html+=" <div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>";
+					html+=" <ul class='navbar-nav'>";
+						html+=" <li class='nav-item'>";
+							html+=" <button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back.png);background-repeat: no-repeat;background-position: center;background-color: #f0f8ff00;background-position-x: 97%;'></button>";
+						html+=" </li>";
+					html+=" </ul>";
+				html+=" </div>";
+				html+=" <!-- end MENU -->";
+				html+=" <!-- start LOGO -->";
+				html+=" <a class='navbar-brand justify-content-center' href='#'>";
+					html+=" <img src='dist/images/logo-consultas.png' width='163px' height='37px' style='position: relative; top: -9px;'/>";
+				html+=" </a>";
+				html+=" <!-- end LOGO -->";
+				html+=" <!-- start MENU -->";
+				html+=" <div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent' style='position: absolute; right: 0px;'>";
+					html+=" <ul class='navbar-nav'>";
+						html+=" <li class='nav-item'>";
+							html+=" <a class='nav-link' href='#'><img src='dist/images/ico-config.png' width='20px' height='20px' style='position: relative;  top: -11px;'/></a>";
+						html+=" </li>";
+					html+=" </ul>";
+				html+=" </div>";
+				html+=" <!-- end MENU -->";
+			html+=" </div>";
+		html+=" </nav>";
+	html+=" </div>";
+html+=" <!-- end CABEZAL -->";
+html+=" </div>";
+html+=" <!-- end hero base cabezal-->";
+return html;
+
 }
 
 $(document).ready(function(){

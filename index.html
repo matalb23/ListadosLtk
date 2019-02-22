@@ -19,13 +19,16 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html  lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <link rel="stylesheet" href="etc/css/tether.min.css">
+    <link rel="stylesheet" href="etc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/style/app.css">
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
 	<!--ESTO LO COMENTE YO, MARTIN, SINO NO CARGA BIEN LAS URLS EXTERNAS DE JS -->
     <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
@@ -39,14 +42,14 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-	<link rel="stylesheet" type="text/css" href="css/utiles.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/utiles.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
 
     <title>LTK.Listados</title>
 </head>
 
-<body >
-	<div data-role="page" id="page-config">
+<body style="background-image: url(dist/images/bg-login.jpg);background-repeat: no-repeat;background-size: cover;">
+	<!-- <div data-role="page" id="page-config">
 		<div data-role="header" data-position="fixed" class="centrado">
 			<h1 >Ingreso</h1>
 		</div>
@@ -65,32 +68,69 @@
 		<div data-role="footer"  class="centrado" data-position="fixed" >
 			Latika Developer Team
 		</div>
-	</div>
+	</div> -->
+
+
+   <div id="page" class="page">
+
+
+
+    <div id="baner11" class="ui-content">
+      <div class="section-space">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div style=" margin: 40px; text-align: center; padding-top: 10%;">
+                <h1><img src="dist/images/logo-consultas.png" width="163px" height="37px" style="position: relative; top: -9px;"/></h1>
+
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="form"><input type="hidden" name="url_ws" id="url_ws" value="https://mdgestion-ws.conveyor.cloud"></div>
+              <div class="form"><input type="text" name="usuario" id="usuario" value="matias"  placeholder="Usuario"></div>
+              <div class="form"><input type="text"  name="clave" id="clave" value="1234"  placeholder="Clave"></div>
+              <div class="form"><button class="btn btn-primary btn-sh-primary" onclick="validar();">VALIDAR</button></div>
+  			<div style="color: #fff; font-size: 12px; text-align: center;">Desarrollado por Latika IT S.R.L.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
     <script type="text/javascript" src="cordova.js"></script>
-	<!-- Include meta tag to ensure proper rendering and touch zooming -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Include jQuery Mobile stylesheets -->
-	 <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
-	<!-- Include the jQuery library -->
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<!--<script src="js/jquery-1.9.1.min.js" ></script>-->
-	<!--<script src="js/jquery-3.0.0.min.js" ></script>-->
-	<!-- Include the jQuery Mobile library -->
-	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <!-- <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css"> -->
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!--<script src="js/jquery-1.9.1.min.js" ></script>-->
+    <!--<script src="js/jquery-3.0.0.min.js" ></script>-->
+    <!-- Include the jQuery Mobile library -->
+    <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <script type="text/javascript" src="js/fastclick.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-  <!-- <script type="text/javascript" src="js/LectorCodigo.js"></script> -->
-	<!--<script src="/js/indexweb.js"></script>-->
-
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    <!-- <script type="text/javascript" src="js/LectorCodigo.js"></script> -->
+    <!--<script src="/js/indexweb.js"></script>-->
+    <script type="text/javascript" src="js/acceso_ws.js"></script>
+    <script type="text/javascript" src="js/indexok.js"></script>
     <script type="text/javascript">
-        app.initialize();
-	</script>
-	<script type="text/javascript" src="js/acceso_ws.js"></script>
-	<script type="text/javascript" src="js/indexok.js"></script>
+    app.initialize();
+    </script>
 
+    <!-- script -->
+    <script src="etc/js/jquery.min.js"></script>
+    <script src="etc/js/tether.min.js"></script>
+    <script src="etc/js/bootstrap.min.js"></script>
+    <!-- <script src="etc/js/jquery.nicescroll.min.js"></script> -->
+    <script src="dist/js/app.js"></script>
 
 </body>
 

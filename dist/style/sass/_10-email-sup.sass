@@ -1,0 +1,72 @@
+#email1
+  background-color: #fff
+  .form
+    background-color: #fff
+    padding: 40px
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.04)
+    border: 1px solid rgba(0,0,0,0.05)
+    .paragraph
+      margin-bottom: 30px
+    input
+      margin-bottom: 20px
+    .btn
+      width: 100%
+    p.copy
+      margin-top: 40px
+      opacity: 0.5
+      margin-right: 120px
+      line-height: 26px
+      a
+        color: $color1
+  .info
+    margin-right: 40px
+    padding-top: 50px
+    h1
+      font-size: 40px
+      line-height: 70px
+    p
+      margin-top: 40px
+      line-height: 40px
+      font-style: italic
+#email2
+  background-color: $color3-
+  border-top: 1px solid $color3
+  border-bottom: 1px solid $color3
+  .video
+    .section-head
+      text-align: left
+      margin-bottom: 40px
+  .email
+    margin-left: 40px
+    padding: 30px
+    background: #fff
+    border-radius: 5px
+    +sh3
+    h1
+      font-weight: 600
+      font-size: 28px
+    p
+      +font1
+      color: #000
+      opacity: 0.5
+      margin: 30px 0
+      line-height: 30px
+    .btn
+      width: 100%
+    .form
+      margin-bottom: 30px
+      &:last-child
+        margin-bottom: 0
+    input
+      border: 1px solid $color3
+      +font1
+      color: $color1
+#email3
+  background-color: #fff
+  .video-style
+    height: 500px
+// start resbonsive work
+@media (max-width: 991px)
+  #email2
+    .video-style
+      margin-bottom: 40px

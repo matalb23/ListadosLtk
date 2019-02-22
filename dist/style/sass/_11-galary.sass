@@ -1,0 +1,58 @@
+#galary1
+  .img-wrapper
+    overflow: hidden
+    height: 400px
+    a
+      &:before
+        transition: all 0.33s
+        position: absolute
+        content: 'Gallery item with zoom optionscreen'
+        text-align: center
+        +font1
+        padding-top: 60%
+        letter-spacing: 3px
+        background-color: $color2
+        width: 100%
+        height: 100%
+        opacity: 0
+      &:hover
+        &:before
+          opacity: 0.8
+    img
+      height: 100%
+#galary2
+  padding-top: 100px
+  background-color: $color2-
+  h1,p
+    color: #fff
+  .img-wrapper
+    overflow: hidden
+    height: 300px
+    cursor: pointer
+    .over
+      position: absolute
+      background-color: $color2
+      width: 100%
+      height: 100%
+      opacity: 0
+      text-align: center
+      padding-top: 35%
+      transition: all 0.333s
+      h1
+        font-size: 20px
+        font-weight: 600
+        letter-spacing: 2px
+      p
+        letter-spacing: 2px
+    img
+      transition: all 0.333s
+      height: 100%
+    &:hover
+      .over
+        opacity: 0.8
+// start resbonsive work
+@media (max-width: 991px)
+  #galary2
+    .img-wrapper
+      img
+        width: 100%

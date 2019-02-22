@@ -1,0 +1,539 @@
+.hero-text
+  text-align: center
+  margin-top: 35%
+  padding: 0 100px
+  h1
+    +font1
+    text-transform: uppercase
+    font-weight: 600
+    font-size: 28px
+  p
+    +font1
+    font-weight: 300
+    margin: 30px 0
+    letter-spacing: 2px
+    line-height: 28px
+#hero1
+  height: 880px
+  background: url('../images/bg-7.jpg') center center no-repeat
+  background-size: cover
+  position: relative
+  h1
+    font-size: 56px
+  &:before
+    content: ''
+    position: absolute
+    background-color: $color2
+    width: 100%
+    height: 100%
+    opacity: 0.8
+#hero2
+  // background-color: #2e3e4e
+  background: url('../../dist/images/bg-11.jpg') center center
+  background-size: cover
+  height: 888px
+  overflow: hidden
+  position: relative
+  .container
+    overflow: hidden
+  &:before
+    content: ''
+    position: absolute
+    background-color: #2e3e4e
+    width: 100%
+    height: 100%
+    opacity: 0.9
+  .hero-text
+    margin: 15% 0
+    h1
+      letter-spacing: 3px
+  .hero-img
+    display: flex
+    flex-direction: column
+    position: relative
+    .t-img
+      flex: 1
+      text-align: right
+      background: transparent
+      width: 900px
+      margin-left: 200px
+      box-shadow: -60px 10px 100px rgba(0,0,0,0.6)
+      position: absolute
+      img
+        width: 100%
+    .b-img
+      text-align: left
+      flex: 1
+      margin-top: 70px
+      img
+        box-shadow: 0px 0px 30px rgba(0,0,0,0.6)
+#hero3
+  background-image: -moz-linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(239,239,239) 100%)
+  background-image: -webkit-linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(239,239,239) 100%)
+  background-image: -ms-linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(239,239,239) 100%)
+  height: 888px
+  position: relative
+  .big
+    position: absolute
+    overflow: hidden
+    h1
+      font-size: 380px
+      font-weight: 800
+      color: #fff
+      text-shadow: 1px 0px $color3 , 0px 2px $color3 , -1px 0px $color3 , -2px 0px $color3
+      margin-top: 200px
+      opacity: 0.5
+      text-transform: uppercase
+  .info
+    position: absolute
+    width: 100%
+    margin-top: 300px
+    .img
+      text-align: left
+      img
+        width: 800px
+    .text
+      position: absolute
+      margin-left: 340px
+      margin-top: 80px
+      h1
+        text-transform: uppercase
+        font-size: 40px
+        font-weight: 600
+        color: $color1
+    .pro-text
+      position: absolute
+      p
+        letter-spacing: 2px
+        margin-left: 650px
+        margin-top: 50px
+        line-height: 40px
+        font-size: 20px
+        font-weight: 400
+  .action
+    text-align: center
+    margin-top: 60px
+    .btn
+      border-radius: 25px
+      margin-right: 30px
+      border: 1px solid $color3
+      &:last-child
+        margin: 0
+#hero4
+  background: url('../../dist/images/bg-12.png') center center no-repeat
+  background-size: cover
+  height: 900px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    background: $color2
+    opacity: 0.6
+    width: 100%
+    height: 100%
+  .text
+    text-align: center
+    margin-top: 25%
+    h1
+      color: #fff
+      font-size: 50px
+      font-family: 'Raleway'
+      font-weight: 800
+      letter-spacing: 4px
+  .input-group
+    background-color: #fff
+    padding: 10px
+    margin-top: 40px
+    border-radius: 200px
+    +sh1
+    button
+      background-color: $color1
+      color: #fff
+      border-radius: 50px
+      transition: all 0.333s
+      &:hover
+        opacity: 0.8
+    input
+      border: 0
+      +font1
+      color: $color2
+  .info
+    text-align: center
+    margin-top: 40px
+    p
+      font-weight: 600
+      color: #fff
+      text-shadow: 1px 1px rgba(0,0,0,0.1)
+  .bottom
+    text-align: center
+    margin-top: 150px
+    h1
+      color: #fff
+      font-size: 30px
+      font-family: 'Raleway'
+      text-transform: uppercase
+      font-weight: 600
+    p
+      margin-top: 20px
+      +font1
+      color: #fff
+      letter-spacing: 2px
+      line-height: 26px
+#hero5
+  background: url('../../dist/images/bg-22.jpg') center center
+  background-size: cover
+  height: 880px
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: -webkit-linear-gradient( left , $color1 , rgba(0,0,0,0) )
+  .big-form
+    background-color: #fff
+    padding: 10px
+    margin-top: 300px
+    padding: 40px
+    +sh1
+    input
+      margin-bottom: 30px
+      &:last-child
+        margin-bottom: 0
+    button
+      width: 100%
+    h1
+      text-transform: uppercase
+      font-weight: 400
+      font-size: 26px
+      margin-bottom: 40px
+      margin-top: 20px
+    .paragraph
+      font-size: 12px
+      line-height: 20px
+      margin-top: 40px
+    @media (max-width: 992px)
+      margin-top: 200px
+  .section-head
+    margin-top: 350px
+    text-align: left
+    h1
+      font-size: 40px
+      line-height: 60px
+      font-weight: 800
+      font-family: 'Raleway'
+      color: #fff
+      letter-spacing: 2px
+    p
+      color: #fff
+      letter-spacing: 4px
+    .btn
+      margin-top: 20px
+      +sh1
+      padding: 16px 40px
+      &:hover
+        box-shadow: 0 0 0
+    @media (max-width: 992px)
+      margin-top: 10px
+      display: none
+#hero6
+  height: 880px
+  background-image: -webkit-linear-gradient( 90deg, rgb(106,27,154) 0%, rgb(101,31,255) 100%)
+  overflow: hidden
+  .navbar
+    background-color: transparent
+    border: 0
+    box-shadow: 0 0 0
+    .navbar-brand
+      letter-spacing: 5px
+      font-size: 29px
+      font-weight: 600
+      text-transform: uppercase
+    .nav-link
+      &:hover
+        opacity: 0.5
+        color: #fff
+        &:before , &:after
+          background-color: #fff
+          opacity: 1
+          transform: scale(1)
+    a
+      color: #fff
+      letter-spacing: 2px
+      font-weight: 300
+  .section-head
+    margin-top: 25%
+    h1
+      color: #fff
+      font-family: 'Raleway'
+      font-size: 40px
+      font-weight: 600
+      letter-spacing: 2px
+    p
+      color: #fff
+      letter-spacing: 3px
+      font-weight: 300
+    .btn
+      margin-top: 30px
+      color: #fff
+      font-weight: 600
+      letter-spacing: 2px
+      border-radius: 25px
+      background-color: transparent
+      border: 2px solid #fff
+      transition: all 0.333s
+      &:hover
+        background-color: #fff
+        color: #671dd6
+  .img-wrapper
+    overflow: hidden
+    cursor: pointer
+    transition: all 0.333s
+    &:hover
+      +sh1
+    img
+      width: 100%
+  .invers-fixed
+    border: 0 !important
+#hero7
+  background-image: -webkit-linear-gradient( 0deg, rgb(254,140,0) 0%, rgb(248,54,0) 100%)
+  height: 888px
+  overflow: hidden
+  .img-wrapper
+    margin-top: 40px
+    height: 900px
+    img
+      height: 100%
+  .text
+    margin-top: 250px
+    h1
+      font-size: 56px
+      line-height: 80px
+      font-family: 'Raleway'
+      font-weight: 800
+      color: #fff
+    p
+      margin-top: 30px
+      +font1
+      font-size: 20px
+      font-weight: 300
+      letter-spacing: 2px
+  .btn
+    margin-top: 30px
+#hero8
+  height: 888px
+  background-image: -webkit-linear-gradient( 0deg, rgb(52,152,219) 0%, rgb(44,62,80) 100%)
+  overflow: hidden
+  .text
+    margin-top: 250px
+    h1
+      font-size: 56px
+      line-height: 80px
+      font-family: 'Raleway'
+      font-weight: 800
+      color: #fff
+    p
+      margin-top: 30px
+      +font1
+      font-size: 20px
+      font-weight: 300
+      letter-spacing: 2px
+  .img-wrapper
+    width: 450px
+    margin-top: 160px
+    img
+      width: 100%
+  .btn
+    padding: 15px 30px
+    font-size: 18px
+    text-transform: uppercase
+    margin-top: 30px
+    color: #000
+#hero9
+  height: 688px
+  background-image: -webkit-linear-gradient( 0deg, rgb(239,239,239) 0%, rgb(255,255,255) 100%)
+  overflow: hidden
+  .text
+    margin-top: 300px
+    h1
+      font-size: 50px
+      letter-spacing: 3px
+      font-weight: 800
+      font-family: 'Raleway'
+      color: #ffe200
+      text-shadow: 0px 10px 16px rgba(0,0,0,0.2)
+      position: relative
+      &:before
+        position: absolute
+        content: 'homs'
+        margin: 20px 24px
+        font-size: 40px
+        text-transform: uppercase
+        letter-spacing: 5px
+        color: #000
+        text-shadow: 0px 4px 10px rgba(0,0,0,0.4)
+    p
+      +font1
+      color: #000
+      font-size: 14px
+      letter-spacing: 2px
+      line-height: 28px
+      margin: 40px 0
+    .btn
+      color: #000
+      border: 1px solid #d1dbed
+  .img-wrapper
+    margin-top: 130px
+    width: 530px
+    float: right
+    img
+      width: 100%
+#hero10
+  height: 888px
+  background-image: -webkit-linear-gradient( 0deg, rgb(29,43,100) 0%, rgb(248,205,218) 100%)
+  .text
+    margin-top: 300px
+    h1
+      font-size: 30px
+      font-weight: 800
+      font-family: 'Raleway'
+      letter-spacing: 2px
+      line-height: 50px
+      color: #fff
+    p
+      +font1
+      letter-spacing: 2px
+      line-height: 30px
+      margin: 30px 0
+    .btn
+      color: #1d2b64
+      font-size: 20px
+      font-weight: 600
+  .img-wrapper
+    margin-top: 300px
+    float: right
+  .box
+    position: absolute
+    background-color: #fff
+    padding: 60px
+    right: 0
+    bottom: 0
+    border-radius: 5px
+    box-shadow: 0px 8px 16.56px 1.44px rgba(0, 0, 0, 0.16)
+    .fa
+      font-size: 30px
+  .box-1
+    padding: 40px 50px
+    bottom: 440px
+    right: 240px
+    animation-delay: 0.2s    
+    .fa
+      font-size: 50px
+  .box-2
+    bottom: 550px
+    right: 360px
+    padding: 30px
+    opacity: 0.5
+    background-color: #565583
+    animation-delay: 0.1s
+  .box-3
+    bottom: 390px
+    right: 180px
+    padding: 40px
+    opacity: 0.5
+    background-color: #565583
+    animation-delay: 0.12s
+  .box-4
+    bottom: 420px
+    right: 120px
+    padding: 50px
+    opacity: 0.5
+    background-color: #565583
+    animation-delay: 0.4s
+  .box-5
+    padding: 30px 35px
+    bottom: 480px
+    right: 40px
+    animation-delay: 0.3s
+    .fa
+      font-size: 30px
+  .box-6
+    bottom: 420px
+    right: -150px
+    padding: 50px
+    opacity: 0.1
+    background-color: #565583
+    animation-delay: 0.1s
+  .box-7
+    padding: 20px 25px
+    bottom: 400px
+    right: -80px
+    animation-delay: 0.33s
+    .fa
+      font-size: 20px
+  .box-8
+    bottom: 280px
+    right: -20px
+    padding: 40px
+    opacity: 0.1
+    background-color: #565583
+    animation-delay: 0.43s
+  .box-9
+    bottom: 260px
+    right: -40px
+    padding: 20px
+    opacity: 0.4
+    background-color: #565583
+    animation-delay: 0.5s
+  .box-10
+    padding: 20px
+    bottom: 250px
+    right: 100px
+    animation-delay: 0.1s
+    .fa
+      font-size: 20px
+// start resbonsive work
+@media (max-width: 991px)
+  #hero2
+    .hero-img
+      .t-img
+        display: none
+      .b-img
+        // display: none
+  #hero3
+    .pro-text
+      position: relative !important
+      text-align: center
+      margin-bottom: 30px
+      p
+        margin: 0 !important
+        padding: 0 !important
+    .text
+      text-align: center
+      position: relative !important
+      padding: 0
+      margin: 0 !important
+    .big  , .img
+      display: none
+  #hero6
+    .section-head
+      margin-top: 60%
+    img
+      margin-top: 40px
+  #hero7
+    img
+      display: none
+  #hero8
+    .text
+      margin-top: 20%
+    img
+      display: none
+  #hero10
+    .img-wrapper , .box
+      display: none
+@media (max-width: 576px)
+  #hero1
+    .hero-text
+      padding: 0

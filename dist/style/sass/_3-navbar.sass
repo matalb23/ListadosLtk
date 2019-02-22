@@ -1,0 +1,139 @@
+.navbar-brand
+  text-transform: uppercase
+  font-weight: 600
+  font-size: 30px
+  color: #fff !important
+  letter-spacing: 2px
+  img
+    width: 114px
+.top-nav
+  .navbar
+    background-color: $color1
+    display: flex
+    .navbar-nav
+      .nav-item
+        .nav-link
+          color: #fff
+          padding: 10px
+          font-weight: 400
+          .zmdi
+            margin-right: 10px
+          &:hover
+            color: #fff
+            opacity: 0.6
+    .info
+      flex: 1
+.navbar
+  padding: 0
+  background-color: #fff
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.04)
+  .navbar-brand
+    img
+      width: 114px
+  .navbar-nav
+    .nav-item
+      .nav-link
+        padding: 30px 10px
+        font-size: 14px
+        font-family: 'Open Sans'
+        font-weight: 600
+        text-transform: capitalize
+        color: $color2
+        letter-spacing: 0.4px
+        position: relative
+        transition: all 0.333s
+        &:before , &:after
+          content: ''
+          position: absolute
+          bottom: 0
+          left: 0
+          height: 2px
+          width: 100%
+          background-color: $color1
+          opacity: 0
+          transition: all 0.333s
+          transform: scale(0)
+        &:hover
+          color: $color1
+          &:before , &:after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            height: 2px
+            width: 100%
+            background-color: $color1
+            opacity: 1
+            transform: scale(1)
+      .btn
+        margin-top: 16px
+        margin-left: 30px
+      .btn-link
+        padding: 10px
+        margin-left: 5px
+      .m-l
+        margin-left: 30px
+      p
+        margin-top: 28px
+        margin-left: 30px
+        color: $color1
+      i
+        // font-size: 20px
+.invers
+  .navbar
+    background-color: $color2
+    .nav-link , .zmdi
+      color: #fff !important
+.invers-fixed
+  .navbar
+    background-color: transparent !important
+    // border-bottom: 1px solid rgba(250,250,250,0.1) done by js
+.w-navbar
+  .navbar
+    background-color: transparent
+    border: 0
+    box-shadow: 0 0 0
+    .navbar-brand
+      letter-spacing: 5px
+      font-size: 29px
+      font-weight: 600
+      text-transform: uppercase
+    .nav-link
+      &:before , &:after
+        background-color: #fff !important
+      &:hover
+        opacity: 0.5
+        color: #fff
+        &:before , &:after
+          background-color: #fff !important
+          opacity: 1
+          transform: scale(1)
+    a
+      color: #fff
+      letter-spacing: 2px
+      font-weight: 300
+.black
+  background-color: $color2 !important
+  color: #000 !important
+.f-black
+  color: #000 !important
+// start responsev work
+@media (max-width: 991px)
+  .navbar , .invers-fixed
+    background-color: rgba(0,0,0 ,0.5) !important
+    padding: 10px 0
+    .navbar-toggler
+      background-color: #fff
+      margin-top: 6px
+      border: 0
+      &:hover , &:active , &:focus
+        outline: 0
+  .top-nav
+    display: none !important
+@media (max-width: 576px)
+  .navbar , .invers-fixed
+    padding: 10px
+    display: block
+    .navbar-brand
+    .navbar-toggler
+      // float: right

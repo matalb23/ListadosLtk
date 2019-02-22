@@ -1,0 +1,185 @@
+#services1
+  background-color: #fff
+  .left
+    overflow: hidden
+    width: 100%
+    height: 782px
+    img
+      height: 100%
+  .right
+    padding: 0px 120px
+    .head
+      text-align: left
+      h1
+        font-weight: 700
+        font-size: 30px
+#services2
+  background-color: #fff
+  .section-head
+    h1
+      font-weight: 600
+    p
+      font-size: 16px
+      letter-spacing: 2px
+      line-height: 28px
+      opacity: 0.5
+  .post
+    text-align: center
+    &:hover
+      .img-wrapper
+        box-shadow: 0px 10px 20px rgba(0,0,0,0)
+    .img-wrapper
+      overflow: hidden
+      width: 100%
+      margin-bottom: 50px
+      +sh2
+      transition: all 0.333s
+      img
+        width: 100%
+    h1
+      font-size: 22px
+      font-weight: 600
+      margin-bottom: 30px
+    p
+      font-size: 16px
+      font-weight: 300
+      letter-spacing: 2px
+      line-height: 28px
+    a
+      letter-spacing: 4px
+      text-decoration: none
+      transform: all 0.333s
+      &:hover
+        letter-spacing: 6px
+#services3
+  border-top: 1px solid $color3
+  border-bottom: 1px solid $color3
+  .section-head
+    text-align: left
+    h1
+      font-size: 44px
+      line-height: 70px
+      text-transform: uppercase
+      font-family: 'Raleway'
+      letter-spacing: 2px
+  .programs
+    .img-wrapper
+      width: 100%
+      height: 250px
+      overflow: hidden
+      +sh2
+      img
+        height: 100%
+        transition: all 0.333s
+        &:hover
+          transform: scale(1.2)
+        @media (max-width: 992px)
+          height: auto
+          width: 100%
+    .text
+      background-color: $color2
+      padding: 20px 30px
+      text-align: center
+      +sh2
+      margin-bottom: 30px
+      p
+        color: #fff
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 2px
+        margin: 0
+        padding: 0
+#services4
+  background-color: $color2-
+  .top
+    margin-bottom: 100px
+  .bottom
+    .img-wrapper
+      text-align: left
+      float: left
+  .text
+    h1 , p
+      color: #fff
+    h1.pro
+      text-transform: uppercase
+      font-size: 24px
+      font-weight: 400
+    h1
+      text-transform: uppercase
+      font-size: 30px
+      font-weight: 600
+      margin: 20px 0
+      letter-spacing: 2px
+      line-height: 48px
+    p
+      letter-spacing: 2px
+      line-height: 30px
+      opacity: 0.5
+  .img-wrapper
+    text-align: right
+    overflow: hidden
+    height: 400px
+    width: 370px
+    border-radius: 5px
+    float: right
+    +sh2
+    img
+      width: 100%
+#services5
+  background-color: #fff
+  .box
+    text-align: center
+    margin-bottom: 60px
+    &:hover
+      .img-wrapper
+        +sh3
+    .img-wrapper
+      overflow: hidden
+      height: 250px
+      border-radius: 5px
+      transition: all 0.33s
+      +sh1
+      img
+        height: 100%
+    .text
+      margin-top: 30px
+      h1
+        font-size: 24px
+        font-weight: 600
+        letter-spacing: 2px
+        margin-bottom: 20px
+      p
+        letter-spacing: 2px
+        opacity: 0.4
+        line-height: 24px
+#services6
+  background-color: $color3-
+  border-top: 1px solid $color3
+  border-bottom: 1px solid $color3
+  .section-head
+    h1
+      font-size: 30px
+      letter-spacing: 1px
+      line-height: 50px
+  .img-wrapper
+    height: 400px
+    overflow: hidden
+    text-align: center
+    padding-bottom: 40px
+    img
+      height: 100%
+      margin: 0 20px
+      +sh3
+      transition: all 0.33s
+      &:hover
+        +sh1
+// start resbonsive work
+@media (max-width: 991px)
+  #services4
+    text-align: center
+    .img-wrapper
+      text-align: center
+  #services5
+    .img-wrapper
+      img
+        width: 100%

@@ -1,0 +1,260 @@
+// general
+body
+  background-color: #f5f5f5
+  ::selection
+    color: #fff
+    background-color: $color1
+p , h1
+  +font1
+  color: $color2
+input
+  padding: 10px 15px
+  text-transform: capitalize
+  width: 100%
+  color: $color2
+  transition: all 0.333s
+  &:hover , &:active , &:focus
+    outline: 0
+    color: $color1
+p.paragraph
+  font-size: 16px
+  line-height: 30px
+  opacity: 0.4
+  letter-spacing: 2px
+.color2-
+  background-color: $color2- !important
+.s-font
+  font-family: 'Playfair Display'
+  font-weight: 600
+  font-style: italic
+// buttons
+.btn-round
+  border-radius: 25px !important
+.btn
+  border: 0
+  text-transform: uppercase
+  padding: 15px 30px
+  font-family: 'Open Sans'
+  letter-spacing: 2px
+  font-size: 14px
+  box-shadow: 0 0 0
+  transition: all 0.333s
+  &:hover , &:active , &:focus
+    color: #fff
+    box-shadow: 0 0 0
+    outline: 0
+.btn-sh
+  box-shadow: 0px 10px 40px rgba(0,0,0,0.2)
+  &:hover , &:active , &:focus
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2)
+.btn-sh-primary
+  box-shadow: 0px 10px 40px rgba(28,186,200,0.2)
+  &:hover , &:active , &:focus
+    box-shadow: 0px 4px 10px rgba(28,186,200,0.2)
+.btn-primary
+  background-color: $color1
+  &:hover , &:active , &:focus
+    background-color: $color1-
+.btn-link
+  color: $color2
+  &:hover , &:active , &:focus
+    color: $color1
+.btn-secondary
+  +font1
+  color: $color1
+  &:hover , &:active , &:focus
+    color: $color1
+    background-color: #fbfbfb
+.btn-danger
+  background-color: #f03f00
+  box-shadow: 0px 10px 40px #f03f00
+  &:hover , &:active , &:focus
+    background-color: #f03f00
+    box-shadow: 0 0 0 #f03f00
+
+button
+  cursor: pointer
+// forms
+.form
+  .form-control
+    padding: 0
+    margin-bottom: 20px
+    border: 0
+    input , textarea
+      width: 100%
+      height: 100%
+      padding: 15px 20px
+      border: 1px solid $color3
+      +font1
+      color: $color2
+      &:hover , &:active , &:focus
+        outline: none
+    textarea
+      resize: none
+// General
+.section-head
+  text-align: center
+  margin-bottom: 100px
+  h1
+    +font1
+    color: $color2
+    font-size: 24px
+    font-weight: 600
+    margin-bottom: 30px
+  p
+    +font1
+    color: $color2
+    font-size: 13px
+    letter-spacing: 2px
+    line-height: 26px
+.head
+  text-align: center
+  margin: 100px 0
+  h1
+    +font1
+    color: $color2
+    font-size: 24px
+    font-weight: 600
+    margin-bottom: 30px
+  p
+    +font1
+    color: $color2
+    font-size: 13px
+    letter-spacing: 2px
+    line-height: 26px
+.section-space
+  padding: 100px 0
+.info-box
+  h1 , h2 , p
+    +font1
+    color: $color2
+  h1
+    font-size: 40px
+    font-weight: 700
+    color: $color1
+  h2
+    font-weight: 600
+    font-size: 20px
+    line-height: 34px
+    letter-spacing: 0
+    text-transform: uppercase
+    margin: 20px 0
+  p
+    font-size: 13px
+    line-height: 26px
+.video-style
+  background-color: transparent
+  border-radius: 5px
+  overflow: hidden
+  height: 300px
+  +sh1
+.player
+  .title
+    display: none !important
+    h1
+      display: none
+// start demo page
+#demos
+  margin: 0 60px
+  padding-bottom: 20px
+  height: 100%
+  background-color: $color2
+  .head
+    h1
+      +font1
+      font-size: 30px
+      letter-spacing: 4px
+      font-weight: 600
+    p
+      +font1
+      letter-spacing: 3px
+      font-weight: 300
+  .demo
+    h1
+      +font1
+      letter-spacing: 4px
+      margin-top: 40px
+      padding-left: 20px
+      position: relative
+      &::before
+        position: absolute
+        content: ''
+        left: 0
+        top: 0
+        width: 4px
+        height: 100%
+        background-color: $color1
+    .text
+      margin-bottom: 100px
+    .img-wrapper
+      overflow: hidden
+      height: 300px
+      width: 100%
+      border-radius: 3px
+      transition: all .3s
+      margin-bottom: 30px
+      +sh1
+      &:hover
+        +sh2
+      img
+        width: 100%
+        height: 100%
+    .comingsoon
+      background-color: #fff
+      opacity: 0.1
+      text-align: center
+      margin: 28%
+      p
+        padding: 10px
+.footer-demo
+  position: absolute
+  background-color: $color2-
+  width: 100%
+  text-align: center
+  .btn
+    width: 100%
+    padding: 60px 0
+    font-size: 25px
+    letter-spacing: 10px
+    border-radius: 0
+#inner
+  padding: 100px 0
+  background-color: $color2-
+  .section-head
+    h1
+      color: #fff
+  .demo1
+    border-top: 1px solid $color2
+    border-bottom: 1px solid $color2
+    border-right: 1px solid $color2
+  .demo2
+    border-top: 1px solid $color2
+    border-bottom: 1px solid $color2
+  .demo
+    padding: 40px 0
+    display: flex
+    .text
+      flex: 1
+      padding-left: 40px
+      margin-top: 10%
+      padding-right: 40px
+      text-align: center
+      h1
+        color: #fff
+        letter-spacing: 4px
+        margin-bottom: 30px
+      .btn
+        width: 100%
+    .img-wrapper
+      margin-left: 40px
+      flex: 1.9
+      overflow: hidden
+      height: 300px
+      width: 100%
+      transition: all .3s
+      +sh1
+      &:hover
+        +sh2
+      img
+        width: 100%
+        height: 100%

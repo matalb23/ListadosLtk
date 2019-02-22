@@ -22,18 +22,7 @@ function actualizar(){
 
 
 
-//consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro, orden, ordenBy}
-function link_agregar_en_menu(link){
-	var nuevo_link;
-	//nuevo_link = "<li> <a href='#' onclick='window.open('"+link.url+"', '_system');'>"+link.nombre+"</a> </li>";
 
-	nuevo_link = "<li> <a href='#' onclick=\"window.open('"+link.url+"', '_system');\">"+link.nombre+"</a> </li>";
-//nuevo_link = "<li>   <a onclick="navigator.app.loadUrl('"+link.url+"', { openExternal:true });">Link</a></li>";
-	//alert(nuevo_link);
-	$("#main-ul-consultas-disponibles").append(nuevo_link);
-
-
-}
 function ws_leer_url(){
 	var url =acceso_ws_get_url();
 	//alert("leido " + url);
@@ -202,7 +191,7 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 						//row.append($( "<td class='row-dato'>" + dato + "</td>";));
 						var ver_click = "<div onclick=\"mas_info("+consulta.codigo+", '"+consulta.desgloseTipo+"', '"+rowData[col_codigo]+"', '"+consulta.desgloseColumnaUnica+"', '"+consulta.columnaCodigo+"')\" class='btn_ver_notas'>(*)</<div>";
 						//alert("ver_click:"+ver_click);
-						row.append($("<td>" + ver_click+ "</td>"));
+						row.append($("<td>" + ver_click + "</td>"));
 					}
 
 				$("#"+id_tabla).append(row);
@@ -214,7 +203,7 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			//alert("TERMINADO " + nombre);
 			////////////////////////////////////////////////////////////////
 			//$("#estado").html(nombre + " OK");
-			$("#estado").html("LatikaIT");
+			$("#estado").html("Latika Developer Team");
 
 			//$("#"+id_tabla).table("refresh");
 		}
@@ -233,77 +222,6 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 
     });
 
-};
-
-function mas_info(consulta_codigo, tipo, codigo_a_buscar, columna_unica, columna_codigo){
-	//alert("columna_unica:"+columna_unica);
-	//selecciono codigo
-    //var _url = "/serviciows.asmx/ObtenerNotasDeServicio";
-    //ajax_mostrar_notas(servicio);
-    var url;
-    var params;
-    if(tipo!=''){
-    	//ajax_mas_info_alert(servicio);
-    	url = _url + WS_MASINFO_SIMPLE;
-    	params = "{acceso:'"+acceso_ws_get_clave() + "', consulta_codigo:"+consulta_codigo+", codigo_a_buscar:'"+codigo_a_buscar+"' ConexionId='"+ getConfigValue("conexion")+"'}";
-    	//params = _params;
-    	function _procesar_mas_info(resultado){
-    		//alert("resultado:"+resultado);
-			//alert("resultado.toLowerCase:"+resultado[0][columna_unica.toLowerCase()]);
-			if(columna_unica!=''){
-				var notas = "";
-	            for (var i = 0; i < resultado.length; i++) {
-	                notas = notas + resultado[i][columna_unica.toLowerCase()] + "\n";
-	            }
-	            if (notas == ""){
-	                alert("Mas Info: " + "\n" + "Sin Info");
-	            }
-	            else{
-	                //alert("Mas Info: " + "\n" + notas);
-					$("#page-mas-info-simple #lbltextarea").html(columna_unica);
-	                $("#page-mas-info-simple #textarea").val(notas);
-	                $("#page-mas-info-simple-titulo").html("Mas Info - Buscar Por: " + codigo_a_buscar);
-					$.mobile.changePage( "#page-mas-info-simple", { transition: "slideup", changeHash: true });
-	            }
-			}else{
-				var html;
-				//Tiene una tabla a mostrar
-				$("#page-mas-info-tablas-main").empty();
-				//alert("resultado:"+resultado);
-				for (var i = 0; i < resultado.length; i++) {
-	                //notas = notas + resultado[i][columna_unica.toLowerCase()] + "\n";
-	                html = "<div class='ui-field-contain'>";
-	                for(var key in resultado[i]) {
-					    //alert('----key: ' + key + '\n' + '----value: ' + resultado[i][key]);
-					    //html+= "<label for='"+key+"'>"+key+"</label>";
-					    html+= "<div class='ui-field-contain'>";
-					    if(key.toLowerCase() == columna_codigo.toLowerCase() )
-					    	//html+= "<h2 >"+key+": </h2>";
-					    html+= "<span ><strong>"+key+": </strong></span>";
-					    else{
-					    	//alert("key:"+key+", colcodigo:"+columna_codigo);
-					    	html+= "<span >"+key+": </span>";
-					    }
-					    //html+= "<input type='text' name='"+key+"' value='"+resultado[i][key]+"'/>";
-					    html+= "<span><strong>"+resultado[i][key]+"</strong></span>";
-					    html+= "</div>";
-					}
-					//html += "<hr noshade/>";
-					html += "</div>";
-					//alert(html);
-					$("#page-mas-info-tablas-main").append(html);
-	            }
-	            $("#page-mas-info-tablas-main").append("<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left' data-rel='back' data-transition='slide'>Volver</a>");
-	            $("#page-mas-info-tablas-titulo").html("Mas Info - Buscar Por: " + codigo_a_buscar);
-	            $.mobile.changePage( "#page-mas-info-tablas", { transition: "slideup", changeHash: true });
-	            $("#page-mas-info-tablas-main").trigger('create');
-
-
-			}
-    	}
-    	ejecutar_ajax_ws(url, params, "mas info", _procesar_mas_info);
-    }
-    //alert("codigo_a_buscar:"+codigo_a_buscar);
 };
 
 function ejecutar_ajax_ws(url, params, nombre, procesar){
@@ -346,7 +264,7 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 			//alert("TERMINADO " + nombre);
 			////////////////////////////////////////////////////////////////
 			//$("#estado").html(nombre + " OK");
-			$("#estado").html("LatikaIT");
+			$("#estado").html("Latika Developer Team");
 			//$("#"+id_tabla).table("refresh");
 		}
 
@@ -367,164 +285,16 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 //consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro, orden, ordenBy}
 function consulta_agregar_en_menu(consulta){
 
-	var nueva_consulta = "<li><button type='button'  id='" + consulta.id + "' onclick='conexion_click()'>"+consulta.nombre+"</button></li>";
+	var nueva_consulta = "<li><button class='btn btn-primary btn-sh-primary ui-btn ui-shadow ui-corner-all'  onclick='conexion_click()'  id='" + consulta.id + "' >"+consulta.nombre+"</button></li>";
 	$("#main-ul-consultas-disponibles").append(nueva_consulta);
 
-	// alert("consulta_agregar_en_menu");
-	// var nueva_consulta ="<tr>" +
-	//
-	// 								"<td><button type='button' id='" + consulta.id + "' class='btn-large naranja'>" + consulta.nombre + "</button>" +
-	//
-	// 								"</td>" +
-	// 						"</tr>";
-  // $(".tabla-seccion").append(nueva_consulta);
-
 }
 
 
 
 
-//consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro[]{.nombre, tipo, filtro}, orden, ordenBy}
-function consulta_agregar_page(consulta){
-	//alert("pag OKe");
-	var page = "";
-	//var template = "<h1>{{firstName}} {{lastName}}</h1>Blog: {{blogURL}}";
-	//var html = Mustache.to_html(template, person);
-	//$('#sampleArea').html(html);
-	var id = consulta_get_id_html(consulta);
-
-	//page = $("body").append($("<div>").append($("<div>").append($("<h1>tiulo</h1>"))).append($("<div>contenttt</div>"))	);​
-	var page = "														\
-	<div data-role='page' id='"+id+"'>     \
-		<div data-role='header' data-position='fixed' >                    \
-			<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext' data-rel='back' data-transition='slide'>Volver</a>   \
-			<h1>"+consulta.nombreAMostrar+"</h1>	";
-			//<button id='actualizar' class='ui-btn ui-icon-delete ui-btn-icon-left ui-btn-icon-notext' >Actualizar</button>		\
-	page = page + "\
-		</div>		\
-			<div data-role='main' class='ui-content'>		";
 
 
-
-	//alert("len filter" + consulta.filtro.length);
-	if(consulta.filtro.length>0){
-		page = page + "\
-			<div data-role='collapsible' class='filtros-colapsable '>		\
-				<h1>Filtros</h1>";
-
-
-		$.each(consulta.filtro, function(index, filtro){
-
-			if(filtro.filtrar){
-				var id_filtro = id + "-filtro-campo" + filtro.nombre.replace(" ", "");
-
-
-			page =page+"\
-			<div class='ui-field-contain filtro-para-seleccion' >		\
-				<label for='label_"+id_filtro+"' id='L_"+id_filtro+"' onclick='leerBarcode(this.id)'>"+filtro.nombre+"</label>		\
-				<input type='text' id='"+id_filtro+"' campo='"+filtro.nombre+"' tipo='"+filtro.tipo+"' condicion='"+filtro.condicion+"' data-type='search' placeholder='"+filtro.nombre+" ...'>	\
-			</div>";
-				/*
-				page =page+"\
-				<div class='ui-field-contain filtro-para-seleccion' >		\
-					<label for='label_"+id_filtro+"' class='boton-lector'>"+filtro.nombre+"</label>		\
-					<input type='text' id='"+id_filtro+"' campo='"+filtro.nombre+"' tipo='"+filtro.tipo+"' condicion='"+filtro.condicion+"' data-type='search' placeholder='"+filtro.nombre+" ...'>	\
-				</div>";*/
-			}
-		});
-		page = page + "</div>";
-	}
-
-
-	var id_btn_buscar = id+"-filtro-buscar";
-	var id_tabla = consulta_get_id_tabla_html(consulta);
-
-	//alert("okok");
-	page = page + "\
-		<button class='ui-btn ui-icon-search ui-btn-icon-left boton-buscar-datos' codigo='"+consulta.codigo+"' id='"+id_btn_buscar+"'>Buscar</button>		\
-				<table  id='"+id_tabla+"' data-role='table' class='ui-responsive ui-shadow agregar_ver_notas' >		\
-					<thead>		\
-					<tr>		";
-	//alert("OKOKOKOKKOKO");
-
-	//cargo las columnas
-	$.each(consulta.filtro, function(index, columna){
-		if(consulta.columnaCodigo.toLowerCase() == columna.nombre.toLowerCase()){
-			//alert("encontro el codigo:"+columna.nombre);
-			page = page + "<th class='ver_notas_codigo' >"+columna.nombre+"</th>";
-		}
-		else{
-			page = page + "<th>"+columna.nombre+"</th>";
-		}
-	});
-
-	if(consulta.desgloseTipo!="")
-		page = page + "<th>"+COL_TH_MAS_INFO+"</th>";
-
-	page = page + "\
-					</tr>		\
-					</thead>	\
-					<tbody>		\
-					</tbody>	\
-				</table>		\
-			</div>		\
-			<div data-role='footer'  class='centrado' data-position='fixed'  >		\
-				LatikaIT		\
-			</div>		\
-		</div>";
-
-	//alert(page);
-	//$("body").addClass("asdfadfasdfasd");
-	$("body").append(page);
-
-}
-function leerBarcode(id)
-{
-
-	id=id.substring(2, id.length);
-//alert(id);
-//document.getElementById('test').setAttribute('id', 'nextstep');
-
-var scanner = cordova.plugins.barcodeScanner;
-//alert(this.id);
-//alert($(this).attr('id').substring(1));
-
-scanner.scan(
-
-function (result) {
-
-if (result.text!="")
-{
-	 //
-	// alert($(this).attr('id').substring(1));
-	 document.getElementById(id).setAttribute('value', result.text);
-
-}
-
-//window.location = "inspeccionar.html";
-},
-function (error) {
-	alert("No se leyo el codigo de barras: " + error);
-},
-{
-	preferFrontCamera : false, // iOS and Android
-	showFlipCameraButton : false, // iOS and Android
-	showTorchButton : true, // iOS and Android
-	torchOn: true, // Android, launch with the torch switched on (if available)
-	saveHistory: false, // Android, save scan history (default false)
-	prompt : "leer codigo", // Android
-	resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-	formats :"QR_CODE",// "QR_CODE", // default: all but PDF_417 and RSS_EXPANDED
-	orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
-	disableAnimations : true, // iOS
-	disableSuccessBeep: false // iOS and Android
-}
-
-);
-
-
-$(".boton-buscar-datos").trigger("click");
-}
 function obtener_consultas(){
 
 	function _proceso_agregar_consultas(resultado){
@@ -538,22 +308,15 @@ function obtener_consultas(){
 				var consulta = _consultas[i];
 
 				consulta_agregar_en_menu(consulta);
-			//	consulta_agregar_page(consulta);
 
-				//for(var key in rowData) alert('----key: ' + key + '\n' + '----value: ' + rowData[key]);
-
-				//alert( rowData);
 			}
 		}
 
-
-		//alert("FIn proceasndoooooo ");
 	}
 	var url = _url + "/consultasws.asmx/ObtenerConexiones";
-	//alert("url:OBETNERCONSULTASS:"+url);
-	//alert("antes ajax");
+
 	ejecutar_ajax_ws(url, _params, "Cargando consultas", _proceso_agregar_consultas);
-	//alert("despues ajax");
+
 
 
 
@@ -596,6 +359,8 @@ function sql_query_agregar_condicion_si_corresponde(campo, tipo, condicion, valo
 	return where;
 }
 
+
+
 $(document).ready(function(){
 	//alert("ready-indexok.js");
 	_clave = acceso_ws_get_clave();
@@ -605,92 +370,6 @@ $(document).ready(function(){
 	_consultas = [];
 
 	actualizar();
-/*	$(".boton-lector").click(function(){
-			var scanner = cordova.plugins.barcodeScanner;
-//alert(this.id);
- //alert($(this).attr('id').substring(1));
 
-			scanner.scan(
-
-	function (result) {
-		if(!isNaN(result.text)  )
-		{
-			if (result.text!="")
-			{
-				 //$(".boton-buscar-datos").trigger("click");
-				 alert($(this).attr('id').substring(1));
-			}
-		}
-		else {
-				alert("No es un codigo valido");
-		}
-		//window.location = "inspeccionar.html";
-		},
-		function (error) {
-				alert("No se leyo el codigo de barras: " + error);
-		},
-		{
-				preferFrontCamera : false, // iOS and Android
-				showFlipCameraButton : false, // iOS and Android
-				showTorchButton : true, // iOS and Android
-				torchOn: true, // Android, launch with the torch switched on (if available)
-				saveHistory: false, // Android, save scan history (default false)
-				prompt : "leer codigo", // Android
-				resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-				formats :"QR_CODE",// "QR_CODE", // default: all but PDF_417 and RSS_EXPANDED
-				orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
-				disableAnimations : true, // iOS
-				disableSuccessBeep: false // iOS and Android
-		}
-
-	);
-
-});*/
-
-
-	$(".boton-buscar-datos").click(function(){
-
-		var consulta_codigo = $(this).attr("codigo");
-
-
-		$.grep(_consultas, function(consulta, index){
-
-			if(consulta.codigo != consulta_codigo)
-				return;
-
-
-			var id = "#" +  consulta_get_id_html(consulta);
-			//alert(id);
-
-			var where = "";
-			$(id + " .filtro-para-seleccion input").each(function(){
-
-				var valor = $(this).val();
-				var campo = $(this).attr("campo");
-				var tipo = $(this).attr("tipo");
-				var condicion = $(this).attr("condicion");
-				where = where + sql_query_agregar_condicion_si_corresponde(campo, tipo, condicion, valor);
-
-			});
-
-
-				where = where + " 1 = 1 ";
-				var newparams = _params;
-				var url = _url + WS_OBTENERTABLAV2;
-				newparams = newparams.replace('}', ", IdConsulta:'"+consulta_codigo+"'}");
-				newparams = newparams.replace('}', ", tabla:'"+consulta.nombreTabla+"'}");
-				newparams = newparams.replace('}', ", filtro:\"" + where+ "\"}");
-				newparams = newparams.replace('}', ", orden:'"+consulta.orderBy+"'}");
-
-				var id_tabla = consulta_get_id_tabla_html(consulta);
-
-				ajax_cargar(url, newparams, consulta.nombreAMostrar +"!", id_tabla, consulta);
-				$("#"+id_tabla).table("refresh");
-
-
-
-		});
-
-	});
 
 });
