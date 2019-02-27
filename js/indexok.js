@@ -59,17 +59,17 @@ function validar_url_clave(url,usuario, clave){
 };
 
 function validar_si_ya_existe_clave(){
-	//alert("estoy actualizando ok ");
+
 
 	var url = acceso_ws_get_url();
-	var clave =  $("#clave").val();//acceso_ws_get_clave();
+	var clave =  $("#clave").val();;
 var usuario  = $("#usuario").val();
 
 	if(url !=null && clave!=null && usuario!=null )
 		if (url!="" && clave!="" && clave!="")
 			validar_url_clave(url, usuario,clave);
 
-	//alert("FINNN estoy actualizando ok ");
+
 };
 
 function validar(){

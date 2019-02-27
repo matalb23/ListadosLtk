@@ -102,20 +102,10 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			msj_error = "WSError codigo: " + resultado_json.codigo + "\n";
 			msj_error = msj_error + "WSError Desc: " + resultado_json.descripcion;
 			alert(msj_error);
-			/*
-			alert("res: " + resultado_json);
-			for(var d in resultado_json){
-				alert(d);
-				alert(resultado_json[d]);
-			}
-			*/
+
 		}else{
 
 
-			//alert(resultado_json);
-			//alert("fin ok--------------------------------");
-			//onDone(resultado_json.resultado, id_tabla);
-			/////////////////////////////////////////////////////////////////
 			//limpio la tabla
 			$("#" + id_tabla + " tbody").empty();
 			//$("#tbodyid").empty();
@@ -150,9 +140,6 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			if(data.length == 0 )
 				alert("Sin datos");
 
-			//alert("consulta.desgloseVista:"+consulta.desgloseVista);
-			//alert("consulta.desgloseTipo:"+consulta.desgloseTipo);
-
 			for (var i = 0; i < data.length; i++) {
 				var rowData = data[i];
 				//alert("rowData: " + rowData);
@@ -174,46 +161,6 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 					row.append($(row_datos_nueva(rowData[col])));
 
 
-
-					/*
-					alert("columna: " + columna);
-					alert("col:::"+col);
-					alert("primero");
-					for(var key in rowData) {
-					    alert('----key: ' + key + '\n' + '----value: ' + rowData[key]);
-						//rowData[key] = rowData[key].toLowerCase();
-						key = key.toLowerCase();
-					}
-					alert("segundo");
-					for(var key in rowData) {
-					    alert('----key: ' + key + '\n' + '----value: ' + rowData[key]);
-						//rowData[key] = rowData[key].toLowerCase();
-					}
-					alert("fin segundo ");
-
-					alert("rowData[col]:::"+rowData[col]);
-					alert("rowData[columna]:::"+rowData[columna]);
-					*/
-
-					/*
-					if(rowData[col]!=null){
-						alert(columnas[columna] + ": " + rowData[col]);
-						//row.append($("<td>" + rowData[col] + "</td>"));
-						row.append($(row_datos_nueva(rowData[col])));
-					}
-					else{
-						if(rowData!='[object Object]'){
-							alert("NULLLL " + col);
-							//row.append($("<td>" + rowData + "</td>"));
-							row.append($(row_datos_nueva(rowData)));
-						}else{
-							//si viene por aca es porque el campo no existe en la consulta que devuelve el ws
-							alert("col_codigo: " + col_codigo + " - rowData[col_codigo]: " + rowData[col_codigo]);
-							var ver_click = "<div onclick=\"mostrar_nota_servicio('"+rowData[col_codigo]+"')\" class='btn_ver_notas'>Notas</<div>";
-							row.append($("<td>" + ver_click+ "</td>"));
-						}
-					}
-					*/
 				}//fin for
 
 				if(consulta.desgloseTipo!=""){
@@ -229,13 +176,9 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			if(!primera_vez){//si es falso, tiene datos, agrego la ultima fila
 				$("#"+id_tabla).append("<tr class='ultimo'></tr>");
 			}
-			//row.append($("<td>  </td>"));
-			//alert("TERMINADO " + nombre);
-			////////////////////////////////////////////////////////////////
-			//$("#estado").html(nombre + " OK");
+
 			$("#estado").html("Latika Developer Team");
 
-			//$("#"+id_tabla).table("refresh");
 		}
 
 
@@ -247,8 +190,6 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
 			alert("xhr.responseText:"+xhr.responseText);
     });
     ajax.always(function () {
-		//alert("allways");
-		//$("#estado").html("OKOKOK");
 
     });
 
@@ -403,14 +344,11 @@ function consulta_agregar_en_menu(consulta){
 
 //consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro[]{.nombre, tipo, filtro}, orden, ordenBy}
 function consulta_agregar_page(consulta){
-	//alert("pag OKe");
+
 	var page = "";
-	//var template = "<h1>{{firstName}} {{lastName}}</h1>Blog: {{blogURL}}";
-	//var html = Mustache.to_html(template, person);
-	//$('#sampleArea').html(html);
+
 	var id = consulta_get_id_html(consulta);
 
-	//page = $("body").append($("<div>").append($("<div>").append($("<h1>tiulo</h1>"))).append($("<div>contenttt</div>"))	);​
 	var page = "														\
 	<div data-role='page' id='"+id+"'>     \
 	<div id=''>     \
@@ -427,22 +365,11 @@ function consulta_agregar_page(consulta){
 					<a class='navbar-brand justify-content-center' href='#'>     \
 						<img src='dist/images/logo-consultas.png' width='163px' height='37px' style='position: relative; top: -9px;'/>     \
 					</a>     \
-					<div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent' style='position: absolute; right: 0px;'>     \
-						<ul class='navbar-nav'>     \
-							<li class='nav-item'>     \
-								<a class='nav-link' href='#'><img src='dist/images/ico-config.png' width='20px' height='20px' style='position: relative;  top: -11px;'/></a>     \
-							</li>     \
-						</ul>     \
-					</div>     \
 				</div>     \
 			</nav>    \
 		</div> ";
 
-	//	<div data-role='header' data-position='fixed' >                    \
-	//		<a href='#' class='ui-btn ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext' data-rel='back' data-transition='slide'>Volver</a>   \
-	//		<h1>"+consulta.nombreAMostrar+"</h1>	";
 
-			//<button id='actualizar' class='ui-btn ui-icon-delete ui-btn-icon-left ui-btn-icon-notext' >Actualizar</button>		\
 	page = page + "\
 		</div>		\
 		<div data-role='main' class='ui-content' style='position: relative; margin-top: 80px;'>      \
@@ -454,7 +381,7 @@ function consulta_agregar_page(consulta){
 		</div>      \
 			<div data-role='main' class='ui-content'>		";
 
-	//alert("len filter" + consulta.filtro.length);
+
 	if(consulta.filtro.length>0){
 		page = page + "\
 			<div data-role='collapsible' class='filtros-colapsable '>		\
@@ -472,12 +399,7 @@ function consulta_agregar_page(consulta){
 				<label for='label_"+id_filtro+"' id='L_"+id_filtro+"' onclick='leerBarcode(this.id)'>"+filtro.nombre+"</label>		\
 				<input type='text' id='"+id_filtro+"' campo='"+filtro.nombre+"' tipo='"+filtro.tipo+"' condicion='"+filtro.condicion+"' data-type='search' placeholder='"+filtro.nombre+" ...'>	\
 			</div>";
-				/*
-				page =page+"\
-				<div class='ui-field-contain filtro-para-seleccion' >		\
-					<label for='label_"+id_filtro+"' class='boton-lector'>"+filtro.nombre+"</label>		\
-					<input type='text' id='"+id_filtro+"' campo='"+filtro.nombre+"' tipo='"+filtro.tipo+"' condicion='"+filtro.condicion+"' data-type='search' placeholder='"+filtro.nombre+" ...'>	\
-				</div>";*/
+
 			}
 		});
 		page = page + "</div>";
@@ -487,18 +409,13 @@ function consulta_agregar_page(consulta){
 	var id_btn_buscar = id+"-filtro-buscar";
 	var id_tabla = consulta_get_id_tabla_html(consulta);
 
-	//alert("okok");
-	// class='ui-btn ui-icon-search ui-btn-icon-left boton-buscar-datos'
 	page = page + "<button class='btn btn-primary btn-sh-primary boton-buscar-datos' codigo='"+consulta.codigo+"' id='"+id_btn_buscar+"'>Buscar</button>";
 	page = page + "<table  id='"+id_tabla+"' data-role='table' class='ui-responsive ui-shadow agregar_ver_notas' >";
 	page = page + "	<thead>";
 	page = page + "<tr>		";
-	//alert("OKOKOKOKKOKO");
-
 	//cargo las columnas
 	$.each(consulta.filtro, function(index, columna){
 		if(consulta.columnaCodigo.toLowerCase() == columna.nombre.toLowerCase()){
-			//alert("encontro el codigo:"+columna.nombre);
 			page = page + "<th class='ver_notas_codigo' >"+columna.nombre+"</th>";
 		}
 		else{
@@ -525,12 +442,6 @@ function consulta_agregar_page(consulta){
 		  	</div>		\
 		</div>";
 
-		//<div data-role='footer'  class='centrado' data-position='fixed'  >		\
-		//	Latika Developer Team		\
-		//</div>		\
-
-	//alert(page);
-	//$("body").addClass("asdfadfasdfasd");
 	$("body").append(page);
 
 }

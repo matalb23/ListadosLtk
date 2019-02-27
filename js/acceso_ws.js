@@ -1,6 +1,6 @@
 var STORAGE_KEY_URL = "http://www.mdnet.com.ar:5844/lConsultasDoc";//"STORAGE_KEY_URL";
 var STORAGE_KEY_CLAVE = "1161718712";//"STORAGE_KEY_CLAVE";
-var STORAGE_KEY_LOGUEADO   = "N";
+var STORAGE_KEY_LOGUEADO   = "S";
 
 var WS_VALIDAR = "/consultasws.asmx/Validar";
 

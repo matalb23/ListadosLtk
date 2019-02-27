@@ -72,6 +72,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        //validar_si_ya_existe_clave();
+
 		///////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////
 
