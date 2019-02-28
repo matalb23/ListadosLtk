@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.latikait.listados.mobile" version="2.0.0">
-  <name>LTK_Listados.Mobile</name>
-  <description>LTK_Listados - Proyecto mobile</description>
+  <name>LTK Consultas</name>
+  <description>LTK Consultas</description>
   <author href="http://latikait.com.ar" email="soporte@latikait.com.ar">Latika Developer Team</author>
   <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -100,4 +100,7 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
+  <platform name="windows">
+  </platform>
+  <platform name="winphone" /> 
 </widget>

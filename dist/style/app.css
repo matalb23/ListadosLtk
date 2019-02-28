@@ -184,6 +184,7 @@ input {
 input:hover, input:active, input:focus {
   outline: 0;
   color: #1cbac8;
+	border: 2px solid #1cbac8;
 }
 
 p.paragraph {
@@ -651,11 +652,11 @@ button {
 }
 
 .navbar .navbar-brand img {
-  width: 100%;
+  width: auto;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {
-  padding: 30px 10px;
+  padding: 15px 10px;
   font-size: 14px;
   font-family: 'Open Sans';
   font-weight: 600;
@@ -664,6 +665,8 @@ button {
   letter-spacing: 0.4px;
   position: relative;
   transition: all 0.333s;
+	top: 8px;
+  left: 20px;
 }
 
 .navbar .navbar-nav .nav-item .nav-link:before, .navbar .navbar-nav .nav-item .nav-link:after {
@@ -2463,7 +2466,7 @@ button {
 
 #baner11 .form input {
   width: 100%;
-  padding: 7px;
+  padding: 10px;
 }
 
 #baner11 .form button {
@@ -2479,7 +2482,15 @@ button {
     font-family: montserrat;
     box-shadow: none;
 }
-
+#baner11 .form button:hover {
+    background-color: #ededed;
+		color:#000
+}
+input:-internal-autofill-previewed, input:-internal-autofill-selected, textarea:-internal-autofill-previewed, textarea:-internal-autofill-selected, select:-internal-autofill-previewed, select:-internal-autofill-selected {
+    background-color: #d4ebf5 !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+}
 #baner12 .btn {
   width: 100%;
   border: 0;

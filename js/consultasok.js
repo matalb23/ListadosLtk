@@ -358,12 +358,12 @@ function consulta_agregar_page(consulta){
 					<div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>     \
 						<ul class='navbar-nav'>     \
 							<li class='nav-item'>     \
-								<button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back.png);background-repeat: no-repeat;background-position: center;background-color: #f0f8ff00;background-position-x: 97%;'></button>     \
+								<button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34;background-position-x: 97%;'></button>     \
 							</li>     \
 						</ul>     \
 					</div>     \
 					<a class='navbar-brand justify-content-center' href='#'>     \
-						<img src='dist/images/logo-consultas.png' width='163px' height='37px' style='position: relative; top: -9px;'/>     \
+						<img src='dist/images/logo-consultas-b.png' width='163px' height='37px' style='position: relative; top: -9px;'/>     \
 					</a>     \
 				</div>     \
 			</nav>    \
@@ -587,15 +587,10 @@ html=""
 					html+=" <img src='dist/images/logo-consultas.png' width='163px' height='37px' style='position: relative; top: -9px;'/>";
 				html+=" </a>";
 				html+=" <!-- end LOGO -->";
-				html+=" <!-- start MENU -->";
-				html+=" <div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent' style='position: absolute; right: 0px;'>";
-					html+=" <ul class='navbar-nav'>";
-						html+=" <li class='nav-item'>";
-							html+=" <a class='nav-link' href='#'><img src='dist/images/ico-config.png' width='20px' height='20px' style='position: relative;  top: -11px;'/></a>";
-						html+=" </li>";
-					html+=" </ul>";
-				html+=" </div>";
-				html+=" <!-- end MENU -->";
+
+
+
+
 			html+=" </div>";
 		html+=" </nav>";
 	html+=" </div>";

@@ -61,9 +61,12 @@ function validar_url_clave(url,usuario, clave){
 function validar_si_ya_existe_clave(){
 
 
-	var url = acceso_ws_get_url();
-	var clave =  $("#clave").val();;
-var usuario  = $("#usuario").val();
+var url = acceso_ws_get_url();
+//var clave =  $("#clave").val();;
+//var usuario  = $("#usuario").val();
+
+var usuario  =getConfigValue("usuario");
+var clave =   getConfigValue("clave");
 
 	if(url !=null && clave!=null && usuario!=null )
 		if (url!="" && clave!="" && clave!="")
