@@ -577,7 +577,7 @@ html=""
 				html+=" <div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>";
 					html+=" <ul class='navbar-nav'>";
 						html+=" <li class='nav-item'>";
-							html+=" <button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #f0f8ff00;background-position-x: 97%;'></button>";
+							html+=" <button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34;background-position-x: 97%;'></button>";
 						html+=" </li>";
 					html+=" </ul>";
 				html+=" </div>";
