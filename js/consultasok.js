@@ -291,6 +291,7 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
 		//alert("DONEEEEE");
 		//alert(response);
 		var resultado_json = $.parseJSON(response.d);
+
 		//codigo | descripcion | resultado
 		//alert("codigo: " + resultado_json.codigo);
 		//alert("descripcion: " + resultado_json.descripcion);
@@ -358,7 +359,7 @@ function consulta_agregar_page(consulta){
 					<div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>     \
 						<ul class='navbar-nav'>     \
 							<li class='nav-item'>     \
-								<button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34;background-position-x: 97%;'></button>     \
+								<button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34; background-size: contain;'></button>     \
 							</li>     \
 						</ul>     \
 					</div>     \
@@ -577,7 +578,7 @@ html=""
 				html+=" <div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent' style='position: absolute; left: 0px;'>";
 					html+=" <ul class='navbar-nav'>";
 						html+=" <li class='nav-item'>";
-							html+=" <button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34;background-position-x: 97%;'></button>";
+							html+=" <button onclick='goBack()' class='nav-link' style='border: 0px;/* padding-left: 20px; */background-image: url(dist/images/ico-back-52.png);background-repeat: no-repeat;background-position: center;background-color: #0d1b34; background-size: contain;'></button>";
 						html+=" </li>";
 					html+=" </ul>";
 				html+=" </div>";
