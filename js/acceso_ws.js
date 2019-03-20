@@ -1,4 +1,5 @@
-var STORAGE_KEY_URL = "http://www.mdnet.com.ar:5844/lConsultasDoc";//"STORAGE_KEY_URL";
+//var STORAGE_KEY_URL = "http://www.mdnet.com.ar:5844/lConsultasDoc";//"STORAGE_KEY_URL";
+var STORAGE_KEY_URL = "https://mdgestion-ws.conveyor.cloud";
 var STORAGE_KEY_CLAVE = "1161718712";//"STORAGE_KEY_CLAVE";
 var STORAGE_KEY_LOGUEADO   = "S";
 
@@ -12,16 +13,16 @@ var WS_OBTENERLINKS   = "/consultasws.asmx/ObtenerLinks";
 
 
 function acceso_ws_get_url(){
-	 return window.localStorage.getItem(STORAGE_KEY_URL);
+	 return STORAGE_KEY_URL;//window.localStorage.getItem(STORAGE_KEY_URL);
 };
 
-function acceso_ws_set_url(url){
-	var lastChar = url.substr(url.length - 1);
-	if(lastChar=="/")
-		url = url.substr(0, url.length - 1);
-
-	window.localStorage.setItem(STORAGE_KEY_URL, url);
-};
+// function acceso_ws_set_url(url){
+// 	var lastChar = url.substr(url.length - 1);
+// 	if(lastChar=="/")
+// 		url = url.substr(0, url.length - 1);
+//
+// 	window.localStorage.setItem(STORAGE_KEY_URL, url);
+// };
 
 function acceso_ws_get_clave(){
 	return window.localStorage.getItem(STORAGE_KEY_CLAVE);

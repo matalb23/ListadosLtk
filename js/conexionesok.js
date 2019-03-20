@@ -1,6 +1,6 @@
 var COL_TH_MAS_INFO = "+Info";
 
-var _clave = "";
+// var _clave = "";
 var _params = "";
 var _url = "";
 var _consultas = [];
@@ -23,20 +23,20 @@ function actualizar(){
 
 
 
-function ws_leer_url(){
-	var url =acceso_ws_get_url();
-	//alert("leido " + url);
-	$("#url_ws").val(url);
-};
-
-
-function ws_validar_clave(){
-	var url  = $("#url_ws").val();
-	acceso_ws_set_url(url);
-
-	alert(url + " - Guardado!.");
-	$.mobile.changePage( "#page-principal", { transition: "slideup", changeHash: true });
-};
+// function ws_leer_url(){
+// 	var url =acceso_ws_get_url();
+// 	//alert("leido " + url);
+// 	// $("#url_ws").val(url);
+// };
+//
+//
+// function ws_validar_clave(){
+// 	var url  = $("#url_ws").val();
+// 	acceso_ws_set_url(url);
+//
+// 	alert(url + " - Guardado!.");
+// 	$.mobile.changePage( "#page-principal", { transition: "slideup", changeHash: true });
+// };
 
 function row_datos_nueva(dato){
 	return "<td class='row-dato'>" + dato + "</td>";
@@ -313,7 +313,7 @@ function obtener_consultas(){
 		}
 
 	}
-	var url = _url + "/consultasws.asmx/ObtenerConexiones";
+	var url = acceso_ws_get_url() + "/consultasws.asmx/ObtenerConexiones";
 
 	ejecutar_ajax_ws(url, _params, "Cargando consultas", _proceso_agregar_consultas);
 
@@ -363,9 +363,9 @@ function sql_query_agregar_condicion_si_corresponde(campo, tipo, condicion, valo
 
 $(document).ready(function(){
 	//alert("ready-indexok.js");
-	_clave = acceso_ws_get_clave();
-	_params = "{acceso: '"+_clave+"'}";
-	_url = acceso_ws_get_url();
+	 _clave = acceso_ws_get_clave();
+	 _params = "{acceso: '"+_clave+"'}";
+	 _url = acceso_ws_get_url();
 	//alert("_url:"+_url);
 	_consultas = [];
 

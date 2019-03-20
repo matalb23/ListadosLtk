@@ -1,5 +1,5 @@
 var COL_TH_MAS_INFO = "+Info";
-//consulta.prop: {codigo, nombreTabla, nombreAMostrar, filtro[]{.nombre, tipo, filtrar:bool }, orden, ordenBy, columnaCodigo}
+
 var _clave = "";
 var _params = "";
 var _url = "";
@@ -185,9 +185,9 @@ function ajax_cargar(url, params, nombre, id_tabla, consulta ){
     });
     ajax.fail(function (xhr, status) {
 		$("#estado").html( nombre + " ERROR");
-        alert("faillll-" + status + " - Url: " + url + " - params: " + params);
+        alert(status + " - Url: " + url + " - params: " + params);
 		if(xhr!=null)
-			alert("xhr.responseText:"+xhr.responseText);
+			alert("Server->xhr.responseText:"+xhr.responseText);
     });
     ajax.always(function () {
 
@@ -323,7 +323,7 @@ function ejecutar_ajax_ws(url, params, nombre, procesar){
     });
     ajax.fail(function (xhr, status) {
 		$("#estado").html( nombre + " ERROR");
-        alert("faillll-" + status + " - Url: " + url + " - params: " + params);
+        alert(  status + " - Url: " + url + " - params: " + params);
     });
     ajax.always(function () {
 		//alert("allways");
@@ -521,6 +521,7 @@ function obtener_consultas(){
 	//alert("url:OBETNERCONSULTASS:"+url);
 	//alert(_params);
 	ejecutar_ajax_ws(url, _params, "Cargando consultas", _proceso_agregar_consultas);
+	 FastClick.attach(document.body);
 	//alert("despues ajax");
 
 
@@ -604,7 +605,7 @@ return html;
 
 $(document).ready(function(){
 	//alert("ready-indexok.js");
-	_clave = acceso_ws_get_clave();
+	 _clave = acceso_ws_get_clave();
 	_params = "{acceso: '"+_clave+"' ,ConexionId:'"+ getConfigValue("conexion")+"'}";
 	_url = acceso_ws_get_url();
 	//alert("_url:"+_url);
