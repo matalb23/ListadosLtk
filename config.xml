@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.latikait.listados.mobile" version="2.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.latikait.listados.mobile" version="2.0.1">
   <name>LTK Consultas</name>
   <description>LTK Consultas</description>
   <author href="http://latikait.com.ar" email="soporte@latikait.com.ar">Latika Developer Team</author>
